@@ -86,7 +86,7 @@ addProduct() {
       console.log(error);
     }
   );
-  console.log(this.ProductForm.get('image')?.value)
+  
 }
 
 
