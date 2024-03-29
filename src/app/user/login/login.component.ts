@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 this.loading = false;
           this.toastr.error('Email o contraseña incorrectos', 'Error en el inicio de sesión');
         }
-      },
+      }, 
       error => {
 this.loading = false;
         this.toastr.error('User incorrect', 'Error');

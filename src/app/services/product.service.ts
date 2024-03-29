@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // Import the 'HttpClient' class
+import { HttpClient, HttpHandler } from '@angular/common/http'; // Import the 'HttpClient' class
 import { Observable } from 'rxjs';
 import { Product } from '../models/products';
+import { HttpHeaders } from '@angular/common/http'; // Import the 'HttpHeaders' class
 @Injectable({
   providedIn: 'root'
 })
@@ -18,8 +19,12 @@ export class ProductService {
     return this.http.delete(this.urldelete+id);
   }
 
-  addProduct(product:Product):Observable<any>{
+  addProduct(product:FormData):Observable<any>{
+
     return this.http.post(this.url, product);
   }
-}
 
+  upload(formDate: FormData): Observable<any> {
+return this.http.post(this.url, formDate);
+}
+}

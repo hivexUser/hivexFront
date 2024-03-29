@@ -6,7 +6,7 @@ export class company{
   companyPhone: string = '';
   companyContact: string = '';
   companyRfc: string = '';
-  companyEmail: string = '';
-  companyPassword: string = '';
+  email: string = '';
+  password: string = '';
   companyConfirmation: string = '';
 }
