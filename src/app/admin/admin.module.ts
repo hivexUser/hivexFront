@@ -1,12 +1,5 @@
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
-import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,8 +7,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../shared/shared.module';
 import { CommonModule } from '@angular/common';
 
-import { MatTableModule } from '@angular/material/table';
+
 import { UserListComponent } from './usuarios/usuarios.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HeaderComponent } from './header/header.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { MensajesClientesComponent } from './mensajes-clientes/mensajes-clientes.component';
+import { EmpresasComponent } from './empresas/empresas.component';
+import { BodyComponent } from './body/body.component';
+import { AllproductsComponent } from './allproducts/allproducts.component';
+import { AgregarProductoComponent } from './agregar-producto/agregar-producto.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -26,6 +28,14 @@ import { UserListComponent } from './usuarios/usuarios.component';
   declarations: [
     LoginComponent,
     UserListComponent,
+    SidenavComponent,
+    HeaderComponent,
+    ProductListComponent,
+    MensajesClientesComponent,
+    EmpresasComponent,
+    BodyComponent,
+    AllproductsComponent,
+    AgregarProductoComponent
     
   
    
@@ -35,7 +45,15 @@ import { UserListComponent } from './usuarios/usuarios.component';
   ],
   exports: [
 
-    UserListComponent
+    UserListComponent,
+    SidenavComponent,
+    HeaderComponent,
+    ProductListComponent,
+    MensajesClientesComponent,
+    EmpresasComponent,
+    BodyComponent,
+    AllproductsComponent,
+    AgregarProductoComponent
    
 
   ],
@@ -43,14 +61,8 @@ import { UserListComponent } from './usuarios/usuarios.component';
   imports:[BrowserModule, RouterModule, SharedModule,
     CommonModule,
     RouterModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    MatIconModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatPaginatorModule,
-    MatTableModule,
+    ReactiveFormsModule
+   
     
   
   ]
