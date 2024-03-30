@@ -19,12 +19,12 @@
 
 
 
-            <a  routerLink="/university" class="nav-item nav-link">University</a>
+            <a routerLink="/university" class="nav-item nav-link">University</a>
             <a href="contact.html" routerLink="/contact" class="nav-item nav-link">Contact</a>
-            <a  routerLink="/homeSeller" class="nav-item nav-link">Seller</a>
+            <a routerLink="/homeSeller" class="nav-item nav-link">Seller</a>
           </div>
           <div class="navbar-nav ml-auto py-0">
-            <a href=""  routerLink="/login" class="nav-item nav-link">Login</a>
+            <a href="" routerLink="/login" class="nav-item nav-link">Login</a>
             <a routerLink="/register" class="nav-item nav-link">Register</a>
           </div>
         </div>
@@ -114,218 +114,35 @@
   </div>
 </div>
 <!-- Featured End -->
-                          <h2 class=" title text-center">Popular Item</h2>
+<h2 class=" title text-center">Popular Item</h2>
 <section class="py-5">
   <div class="container px-4 px-xl-12 mt-2">
-      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top prod" src="assets/img/muebles.jpg" >
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder">TV cabinet</h5>
-                          <!-- Product price-->
-                          $40.00 - $80.00
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto" href="#">View details</a></div>
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-3 mb-4" *ngFor="let product of listProducts">
+        <div class="card h-100">
+          <!-- Product image-->
+          <img class="card-img-top prod" [src]="product.image">
 
-                  </div>
-              </div>
+          <!-- Product details-->
+          <div class="card-body p-4">
+            <div class="text-center">
+              <!-- Product name-->
+              <h5 class="fw-bolder">{{product.name}}</h5>
+              <!-- Product price-->
+              ${{product.price}}.00
+            </div>
           </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Sale badge-->
-                  <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                  <!-- Product image-->
-                  <img class="card-img-top prod" src="assets/img/muebles2.jpg" alt="...">
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder">Drawer cabinet</h5>
-                          <!-- Product reviews-->
-                          <div class="d-flex justify-content-center small text-warning mb-2">
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                          </div>
-                          <!-- Product price-->
-                          <span class="text-muted text-decoration-line-through">$20.00</span>
-                          $18.00
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto" href="#">View details</a></div>
-                  </div>
-              </div>
+          <!-- Product actions-->
+          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto"
+                href="#">View details</a></div>
           </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Sale badge-->
-                  <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                  <!-- Product image-->
-                  <img class="card-img-top prod" src="assets/img/muebles3.jpg" alt="...">
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder">Window</h5>
-                          <!-- Product price-->
-                          <span class="text-muted text-decoration-line-through">$50.00</span>
-                          $25.00
-                      </div>
-                  </div>
-
-
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto" href="#">View details</a></div>
-
-                  </div>
-              </div>
-          </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top prod" class="card-img-top prod" src="assets/img/mesas.webp" alt="...">
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder">Dining room</h5>
-                          <!-- Product reviews-->
-                          <div class="d-flex justify-content-center small text-warning mb-2">
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                          </div>
-                          <!-- Product price-->
-                          $80.00
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto" href="#">View details</a></div>
-
-                  </div>
-              </div>
-          </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Sale badge-->
-                  <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                  <!-- Product image-->
-                  <img class="card-img-top prod" class="card-img-top prod" src="assets/img/sillas.jpg" alt="...">
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder">Gaming chair</h5>
-                          <!-- Product price-->
-                          <span class="text-muted text-decoration-line-through">$50.00 -</span>
-                          $45.00
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto" href="#">View details</a></div>
-
-                  </div>
-              </div>
-          </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top prod" class="card-img-top prod" src="assets/img/mochila.jpg" alt="...">
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder">Waterproof backpack</h5>
-                          <!-- Product price-->
-                          $40.00 - $350.00
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto" href="#">View details</a></div>
-
-                  </div>
-              </div>
-          </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Sale badge-->
-                  <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                  <!-- Product image-->
-                  <img  class="card-img-top prod" class="card-img-top prod" src="assets/img/monitor.jpg" alt="...">
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h5 class="fw-bolder">Computer monitor</h5>
-                          <!-- Product reviews-->
-                          <div class="d-flex justify-content-center small text-warning mb-2">
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                          </div>
-                          <!-- Product price-->
-                          <span class="text-muted text-decoration-line-through">$20.00</span>
-                          $18.00
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto" href="#">View details</a></div>
-
-                  </div>
-              </div>
-          </div>
-          <div class="col mb-5">
-              <div class="card h-100">
-                  <!-- Product image-->
-                  <img  class="card-img-top prod" class="card-img-top prod" src="assets/img/camara.jpeg" alt="...">
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- Product name-->
-                          <h4 class="fw-bolder">Security camera</h4>
-                          <!-- Product reviews-->
-                          <div class="d-flex justify-content-center small text-warning mb-2">
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                          </div>
-                          <!-- Product price-->
-                          $40.00
-                      </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center"><a routerLink="/login" class="btn btn-primary btn-outline-dark mt-auto" href="#">View details</a></div>
-
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
+    </div>
   </div>
 </section>
+
 
 
 
@@ -443,7 +260,8 @@
         <div class="position-relative" style="z-index: 1">
           <h5 class="text-uppercase mb-3">need help?</h5>
           <h1 class="mb-3 font-weight-semi-bold">Hivex University</h1>
-          <a routerLink="/university" target="_blank" class="btn botton py-md-2 btn btn-secondary btn-lg px-md-3">Read more...</a>
+          <a routerLink="/university" target="_blank" class="btn botton py-md-2 btn btn-secondary btn-lg px-md-3">Read
+            more...</a>
         </div>
       </div>
     </div>
@@ -478,7 +296,7 @@
           <div class="card h-100" class="cat-item d-flex flex-column  mb-4">
             <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
 
-            <img src="assets/img/empresa2.jpg" class="empresa mt-2 card-img-top"  alt="Imagen 2" />
+            <img src="assets/img/empresa2.jpg" class="empresa mt-2 card-img-top" alt="Imagen 2" />
             <div class="card-body"></div>
           </div>
         </div>
@@ -486,7 +304,7 @@
           <div class="card h-100" class="cat-item d-flex flex-column  mb-4">
             <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
 
-            <img src="assets/img/empresa4.png" class="empresa mt-2 card-img-top"  alt="Imagen 2" />
+            <img src="assets/img/empresa4.png" class="empresa mt-2 card-img-top" alt="Imagen 2" />
             <div class="card-body"></div>
           </div>
         </div>
@@ -496,7 +314,7 @@
           <div class="card h-100" class="cat-item d-flex flex-column  mb-4">
             <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
 
-            <img src="assets/img/empresa3.jpg" class="empresa mt-2 card-img-top"  alt="Imagen 3" />
+            <img src="assets/img/empresa3.jpg" class="empresa mt-2 card-img-top" alt="Imagen 3" />
             <div class="card-body"></div>
           </div>
         </div>

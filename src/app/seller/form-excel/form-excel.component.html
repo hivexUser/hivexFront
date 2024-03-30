@@ -1,0 +1,44 @@
+<app-header-seller></app-header-seller>
+<br><br>
+
+
+<div class="container">
+  <div class="row ">
+      <div class="col-8 form mx-auto">
+          <h2 class="text-center mb-4">File Form</h2>
+
+<form [formGroup]="FileForm"  (ngSubmit)="addFile()">
+  <!-- 2 column grid layout with text inputs for the first and last names -->
+
+
+  <!-- Text input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="file"  (change)="getFile($event)"  multiple>
+
+  </div>
+
+
+
+
+
+
+
+
+  <div class="d-flex justify-content-center align-items-center">
+    <button class="btn btn-success" [disabled]="loading" *ngIf="loading">
+      <span class="spinner-border spinner-border-sm mb-2"></span>
+      Loading..
+    </button>
+  </div> <br>
+  <!-- Submit button -->
+  <button *ngIf="!loading" data-mdb-ripple-init type="submit" class="btn in black btn-block mb-4">Create</button>
+
+</form>
+      </div>
+  </div>
+</div>
+
+
+
+<br><br><br><br><br><br><br><br> <br><br><br><br> 
+<app-footer></app-footer>

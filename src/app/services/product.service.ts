@@ -24,7 +24,13 @@ export class ProductService {
     return this.http.post(this.url, product);
   }
 
-  upload(formDate: FormData): Observable<any> {
-return this.http.post(this.url, formDate);
-}
+  editarProduct(id: string, Product:FormData):Observable<any>{
+    return this.http.put(this.url + id, Product);
+  }
+  
+  getProductById(id: string):Observable<any>{
+    return this.http.get(this.url + id);
+  }
+
+
 }
