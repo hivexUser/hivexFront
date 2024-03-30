@@ -10,6 +10,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { RegisterComponent } from './register/register.component';
 
 import { LoginSellerComponent } from './login-seller/login-seller.component';
+import { FormExcelComponent } from './form-excel/form-excel.component';
 
 
 
@@ -18,11 +19,14 @@ const routes: Routes = [
     {path: 'dashboardSeller',component:DashboardSellerComponent},
     {path: 'listProducts',component:ListProductsComponent},
     {path: 'formProduct',component:FormProductComponent},
+    {path: 'editarProduct/:id',component:FormProductComponent},
     {path: 'chats',component:ChatsComponent},
     {path: 'orders',component:OrdersComponent},
     {path: 'statistics',component:StatisticsComponent},
     {path: 'registerSeller',component:RegisterComponent},
-    {path: 'loginSeller',component:LoginSellerComponent}
+    {path: 'loginSeller',component:LoginSellerComponent},
+    {path: 'formExcel',component:FormExcelComponent}
+
 
 
 ];

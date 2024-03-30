@@ -1,10 +1,12 @@
 export class Product{
+
   _id?: string;
   name: string="";
   price: number=0;
   stock: number=0;
-  image: File | null = null;
+  image: any;
   description: string="";
-  category: number=0;
-  user_id: string="";
+  category: string="";
+  company_id: string="";
+  status: boolean = true;
 }

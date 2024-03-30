@@ -28,8 +28,8 @@ export class RegisterComponent implements OnInit {
       companyPhone:['', Validators.required],
       companyContact:['', Validators.required],
       companyRfc:['', Validators.required],
-      companyEmail:['', Validators.required],
-      companyPassword:['', Validators.required],
+      email:['', Validators.required],
+      password:['', Validators.required],
       companyConfirmation:['', Validators.required]
 
   })
@@ -48,12 +48,12 @@ export class RegisterComponent implements OnInit {
       companyPhone: this.CompanyForm.get('companyPhone')?.value,
       companyContact: this.CompanyForm.get('companyContact')?.value,
       companyRfc: this.CompanyForm.get('companyRfc')?.value,
-      companyEmail: this.CompanyForm.get('companyEmail')?.value,
-      companyPassword: this.CompanyForm.get('companyPassword')?.value,
+      email: this.CompanyForm.get('email')?.value,
+      password: this.CompanyForm.get('password')?.value,
       companyConfirmation: this.CompanyForm.get('companyPassword')?.value,
 
     }
-    if (this.CompanyForm.get('companyPassword')?.value !== this.CompanyForm.get('companyConfirmation')?.value) {
+    if (this.CompanyForm.get('password')?.value !== this.CompanyForm.get('companyConfirmation')?.value) {
       this.toastr.error('Las contraseñas ingresadas deben ser las mismas', 'Error');
       this.loading = false;
      return;
