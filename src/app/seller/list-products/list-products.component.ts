@@ -11,19 +11,26 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListProductsComponent implements OnInit {
   listProducts:Product []=[];
+  company:string = localStorage.getItem('companyId') || '{}';
   constructor(private router: Router, private _productService: ProductService, private Toast: ToastrService) { }
 
   ngOnInit(): void {
     this.getProducts()
+
   }
 
-  getProducts(){
-    this._productService.getProducts().subscribe(data=>{
-      console.log(data.products);
-      this.listProducts=data.products;
-    },error=>{
-    console.log(error)
-    })
+
+  getProducts() {
+    this._productService.getProducts().subscribe(
+      (data) => {
+        console.log(data.products);
+        // Filtrar los productos por companyId
+        this.listProducts = data.products.filter((product:Product) => product.company_id === this.company);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   deleteProduct(_id:any){

@@ -26,7 +26,7 @@
 
   <!-- Text input -->
   <div data-mdb-input-init class="form-outline mb-4">
-    <input type="file" id="image" formControlName="image" class="form-control in" />
+    <input type="file"  (change)="getFile($event)"  multiple>
     <label class="form-label"  for="form6Example3">Image</label>
   </div>
 
@@ -63,7 +63,7 @@
       <span class="spinner-border spinner-border-sm mb-2"></span>
       Loading..
     </button>
-  </div> <br> 
+  </div> <br>
   <!-- Submit button -->
   <button *ngIf="!loading" data-mdb-ripple-init type="submit" class="btn in black btn-block mb-4">Create</button>
 
