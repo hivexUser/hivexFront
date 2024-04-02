@@ -28,8 +28,6 @@ const routes: Routes = [
     {path: 'loginSeller',component:LoginSellerComponent},
     {path: 'formExcel',component:FormExcelComponent, canActivate: [PermissionsSellerGuard]}
 
-
-
 ];
 
 
