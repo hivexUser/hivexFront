@@ -21,7 +21,10 @@
                   <th>Price</th>
                   <th>Description</th>
                   <th>Stock</th>
+                  <th>Status</th>
+                  <th>Category</th>
                   <th>Actions</th>
+
                 </tr>
               </thead>
               <tbody class="align-middle" *ngFor="let products of listProducts">
@@ -29,16 +32,23 @@
                   <td class="align-middle">
                     <p>{{products.name}}</p>
                   </td>
-                  <img [src]="products.image" alt="Product Image" width="100">
+                  <td>
+                  <img [src]="products.image" alt="Product Image" width="100" class="Image"></td>
                   <td class="align-middle">{{products.price}}</td>
                   <td class="align-middle">
                     {{products.description}}
                   </td>
                   <td class="align-middle">{{products.stock}}</td>
+                  <td class="align-middle"> <strong>
+                    {{products.status}}</strong>
+                  </td>
+                  <td class="align-middle"> <strong>
+                    {{products.category}}</strong>
+                  </td>
                   <td class="align-middle">
                     <button class="btn btn-info">Edit</button>
                     <button (click)="deleteProduct(products._id)" class="btn btn-danger ml-1">Delete</button>
-                    <button class="btn btn-success ml-1">Post</button>
+
                   </td>
                 </tr>
 

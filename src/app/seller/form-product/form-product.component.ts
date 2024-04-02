@@ -73,10 +73,9 @@ export class FormProductComponent implements OnInit {
     Product.append('category', this.ProductForm.get('category')?.value);
     Product.append('description', this.ProductForm.get('description')?.value);
     Product.append('image', this.archivo);
-    Product.append('status', 'true');
+    Product.append('status', 'new');
     Product.append('company_id', localStorage.getItem('companyId') || '');
-    console.log('imagen enviada:', this.archivo);
-    console.log('Producto:')
+    
 
     if (this.id !== null) {
       //editamos pedido

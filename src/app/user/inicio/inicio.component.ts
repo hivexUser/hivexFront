@@ -16,6 +16,7 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.Usuario
     this.getProducts();
+    localStorage.clear();
   }
 
 
