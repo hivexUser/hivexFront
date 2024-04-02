@@ -18,6 +18,8 @@ import { BodyComponent } from './body/body.component';
 import { AllproductsComponent } from './allproducts/allproducts.component';
 import { AgregarProductoComponent } from './agregar-producto/agregar-producto.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilesComponent } from './files/files.component';
+import { VerCompComponent } from './ver-comp/ver-comp.component';
 
 
 
@@ -35,7 +37,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmpresasComponent,
     BodyComponent,
     AllproductsComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
+    FilesComponent,
+    VerCompComponent
     
   
    
@@ -53,7 +57,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmpresasComponent,
     BodyComponent,
     AllproductsComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
+    VerCompComponent,
+    FilesComponent
    
 
   ],

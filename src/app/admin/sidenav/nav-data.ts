@@ -1,7 +1,7 @@
 export const navbarData = [
 
     {
-        routeLink: 'dashboard',
+        routeLink: 'Estadisticas',
         icon: 'fal fa-home',
         Label: 'Dashboard'
     },
@@ -12,8 +12,8 @@ export const navbarData = [
     },
     {
         routeLink: 'empresas',
-        icon: 'fal fa-check',
-        Label: 'Products'
+        icon: 'fa fa-building',
+        Label: 'Empresas'
     },
     {
         routeLink: 'product-list',
@@ -21,9 +21,24 @@ export const navbarData = [
         Label: 'Products'
     },
     {
+        routeLink: 'productos',
+        icon: 'fa fa-check',
+        Label: 'Verificar Productos'
+    },
+    {
+        routeLink: 'productos',
+        icon: 'fa fa-check',
+        Label: 'Verificar Empresas'
+    },
+    {
         routeLink: 'mensajes-clientes',
         icon: 'fal fa-comments',
-        Label: 'Products'
+        Label: 'Preguntas'
+    },
+    {
+        routeLink: 'files',
+        icon: 'fa fa-file',
+        Label: 'Files'
     },
  
 ];

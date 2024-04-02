@@ -1,0 +1,36 @@
+<div class="body">
+    <div class="container">
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Archivo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let archivo of archivos" class="border-b hover:bg-gray-100">
+              <td class="p-3">{{ archivo.name }}</td>
+              <td class="p-3"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Botón "Agregar Archivo" con diseño mejorado -->
+      <div class="toggle-form">
+        <button class="detail2" (click)="toggleForm()">
+          <span *ngIf="!showForm">Agregar Archivo</span>
+          <span *ngIf="showForm">Cerrar Formulario</span>
+        </button>
+      </div>
+  
+      <!-- Formulario para agregar archivo -->
+      <div *ngIf="showForm" class="form-container">
+        <form (submit)="addFile()">
+          <input type="file" (change)="getFile($event)" multiple>
+          <button type="submit">Agregar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

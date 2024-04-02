@@ -12,7 +12,7 @@ export class UserListComponent implements OnInit {
   listUsers: UserList[] = [];
 
   currentPage: number = 1;
-  pageSize: number = 5;
+  pageSize: number = 20;
   pageSizes: number[] = [5, 10, 20];
 
   

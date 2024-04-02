@@ -7,6 +7,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { NavvComponent } from './navv/navv.component';
 import { UserListComponent } from './usuarios/usuarios.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { FilesComponent } from './files/files.component';
+import { VerCompComponent } from './ver-comp/ver-comp.component';
 
 
 
@@ -20,6 +22,9 @@ const routes: Routes = [
     { path: 'navv', component: NavvComponent},
     { path: 'usuarios', component: UserListComponent},
     { path: 'sidenav', component: SidenavComponent},
+    { path: 'files', component: FilesComponent},
+    { path: 'ver-comp', component: VerCompComponent},
+
 
 
   
