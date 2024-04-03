@@ -27,11 +27,8 @@ export class FormExcelComponent implements OnInit {
     })
   }
 
-
   ngOnInit(): void {
-
   }
-
   getFile(event: Event) {
     const target = event.target as HTMLInputElement;
     const files: FileList | null = target.files;
@@ -42,10 +39,6 @@ export class FormExcelComponent implements OnInit {
       });
     }
   }
-
-
-
-
 
   addFile() {
 

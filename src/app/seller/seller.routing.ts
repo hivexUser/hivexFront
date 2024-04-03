@@ -11,21 +11,22 @@ import { RegisterComponent } from './register/register.component';
 
 import { LoginSellerComponent } from './login-seller/login-seller.component';
 import { FormExcelComponent } from './form-excel/form-excel.component';
+import { PermissionsSellerGuard } from '../guards/permissions-seller.guard';
 
 
 
 const routes: Routes = [
     {path: 'homeSeller',component:HomeSellerComponent},
-    {path: 'dashboardSeller',component:DashboardSellerComponent},
-    {path: 'listProducts',component:ListProductsComponent},
-    {path: 'formProduct',component:FormProductComponent},
-    {path: 'editarProduct/:id',component:FormProductComponent},
-    {path: 'chats',component:ChatsComponent},
-    {path: 'orders',component:OrdersComponent},
-    {path: 'statistics',component:StatisticsComponent},
+    {path: 'dashboardSeller',component:DashboardSellerComponent, canActivate: [PermissionsSellerGuard]},
+    {path: 'listProducts',component:ListProductsComponent, canActivate: [PermissionsSellerGuard]},
+    {path: 'formProduct',component:FormProductComponent, canActivate: [PermissionsSellerGuard]},
+    {path: 'editarProduct/:id',component:FormProductComponent, canActivate: [PermissionsSellerGuard]},
+    {path: 'chats',component:ChatsComponent, canActivate: [PermissionsSellerGuard]},
+    {path: 'orders',component:OrdersComponent, canActivate: [PermissionsSellerGuard]},
+    {path: 'statistics',component:StatisticsComponent, canActivate: [PermissionsSellerGuard]},
     {path: 'registerSeller',component:RegisterComponent},
     {path: 'loginSeller',component:LoginSellerComponent},
-    {path: 'formExcel',component:FormExcelComponent}
+    {path: 'formExcel',component:FormExcelComponent, canActivate: [PermissionsSellerGuard]}
 
 
 
