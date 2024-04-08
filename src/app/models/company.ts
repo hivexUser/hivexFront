@@ -9,4 +9,5 @@ export class company{
   email: string = '';
   password: string = '';
   companyConfirmation: string = '';
+  status: string = '';
 }

@@ -51,6 +51,7 @@ export class RegisterComponent implements OnInit {
       email: this.CompanyForm.get('email')?.value,
       password: this.CompanyForm.get('password')?.value,
       companyConfirmation: this.CompanyForm.get('companyPassword')?.value,
+      status: 'active'
 
     }
     if (this.CompanyForm.get('password')?.value !== this.CompanyForm.get('companyConfirmation')?.value) {
