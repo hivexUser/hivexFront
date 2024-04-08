@@ -36,7 +36,7 @@ export class LoginSellerComponent implements OnInit {
     this._Login.loginCompany(LoginUser).subscribe(
       response => {
         // Manejar la respuesta de la API en caso de éxito
-        console.log(response);
+        
 
 
         if (response && response.company && response.company._id) {

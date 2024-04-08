@@ -23,6 +23,7 @@ export class FormProductComponent implements OnInit {
   fotoPureba: string = 'Hola mundo';
   archivosServer: any;
   id: string | null = null;
+  img:File | null = null;
 
 
 
@@ -33,13 +34,16 @@ export class FormProductComponent implements OnInit {
       price: ['', Validators.required],
       stock: ['', Validators.required],
       category: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      file: ['', Validators.required]
+
     })
     this.id = this.aRouter.snapshot.paramMap.get('id')
   }
 
   ngOnInit(): void {
-    console.log('id:', this.id);
+
+    this.esEditar();
   }
 
   getFile(event: Event) {
@@ -48,45 +52,38 @@ export class FormProductComponent implements OnInit {
     if (files!.length > 0 && files != null) {
       Array.prototype.forEach.call(files, (file: File) => {
         this.archivo = file;
-        console.log('imagen:', this.archivo);
+
       });
     }
   }
 
 
-
-
-
   addProduct() {
-
-    if (!this.archivo) {
-      console.error('No se ha seleccionado ningún archivo.');
-      return;
-    }
-
     this.loading = true;
-    console.log('imagen en add:', this.archivo);
+
     const Product = new FormData();
     Product.append('name', this.ProductForm.get('name')?.value);
     Product.append('price', this.ProductForm.get('price')?.value);
     Product.append('stock', this.ProductForm.get('stock')?.value);
     Product.append('category', this.ProductForm.get('category')?.value);
     Product.append('description', this.ProductForm.get('description')?.value);
-    Product.append('image', this.archivo);
-    Product.append('status', 'true');
+    Product.append('file', this.archivo!);
+    Product.append('status', 'new');
     Product.append('company_id', localStorage.getItem('companyId') || '');
-    console.log('imagen enviada:', this.archivo);
-    console.log('Producto:')
 
     if (this.id !== null) {
-      //editamos pedido
-      this._productService.editarProduct(this.id, Product).subscribe(data => {
+      // Editar producto
+      Product.append('_id', this.id);
+      this._productService.editarProduct(Product).subscribe(data => {
         this.router.navigate(['/listProducts'])
         this.Toast.success('Product edited successfully', 'Success');
       }, error => {
+        this.loading = false;
+        this.Toast.error('Error editing product', 'Error');
         console.log(error)
       })
     } else {
+      // Agregar nuevo producto
       this._productService.addProduct(Product).subscribe(
         dato => {
           this.router.navigate(['/listProducts'])
@@ -101,4 +98,26 @@ export class FormProductComponent implements OnInit {
   }
 
 
+  esEditar() {
+    if (this.id !== null) {
+      this._productService.getProductById(this.id).subscribe(data => {
+        console.log(data.product) // Mostramos la imagen en consola
+          this.img = data.product.file;
+          this.ProductForm.setValue({
+            name: data.product.name,
+            price: data.product.price,
+            stock: data.product.stock,
+            description: data.product.description,
+            category: data.product.category,
+            file: data.product.image
+            // Establecemos el valor de la imagen
+          });
+        }
+      , error => {
+        console.log(error)
+      })
+    }
+  }
 }
+
+
