@@ -9,6 +9,7 @@ import { UserList } from '../models/user_list';
 })
 export class UserListService {
   private apiUrl = 'https://backendlyon.onrender.com/user/users';
+  private urldelate = 'https://backendlyon.onrender.com/roles/update/{id}'; 
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +17,7 @@ export class UserListService {
     return this.http.get<any>(this.apiUrl).pipe(
       map(response => response.users.map((user: any) => ({
         _id: user._id,
+        id: user.id,
         name: user.name,
         email: user.email,
         rol_id: user.rol_id,
@@ -23,4 +25,5 @@ export class UserListService {
       })))
     );
   }
+
 }

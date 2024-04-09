@@ -8,4 +8,4 @@ export class Product{
   category: string="";
   company_id: string="";
   status: boolean = true;
-  }
+}

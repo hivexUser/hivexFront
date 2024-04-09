@@ -10,12 +10,11 @@ import { UserListService } from 'src/app/services/user_list.service';
 })
 export class UserListComponent implements OnInit {
   listUsers: UserList[] = [];
+  editingUser: UserList | null = null; // Variable para almacenar el usuario que se está editando
 
   currentPage: number = 1;
   pageSize: number = 20;
   pageSizes: number[] = [5, 10, 20];
-
-  
 
   constructor(private router: Router, private userListService: UserListService) { }
   ngOnInit(): void {
@@ -31,6 +30,12 @@ export class UserListComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+
+
+  cancelEdit() {
+    this.editingUser = null; // Cancela la edición y restablece el usuario en edición
   }
 
   nextPage() {
@@ -55,7 +60,6 @@ export class UserListComponent implements OnInit {
     this.currentPage = 1;
   }
 
-  
   @Input() collapsed = false;
   @Input() screenWidth = 0;
 

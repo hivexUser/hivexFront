@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Product } from 'src/app/models/products';
+import { ProductService } from 'src/app/services/add-product.service';
 
 @Component({
   selector: 'app-productos',
@@ -6,51 +9,89 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-  productos: any[] = [
-    { nombre: 'iPhone 15',categoria: 'Tecnología',
-      detalle1: 'Pantalla OLED de 6.7 pulgadas',
-      detalle2: 'Chip A16 Bionic',
-      precio: 1299.99, 
-      stock: 100,
-      vendedor: 'Apple',
-      imagen: 'assets/img/Iphone15.png' 
-    },
-    { 
-      nombre: 'Camisa de Vestir',
-      categoria: 'Ropa',
-      detalle1: 'Color: Negra',
-      detalle2: 'Tallas disponibles: S, M, L, XL',
-      precio: 39.99, 
-      stock: 50,
-      vendedor: 'Fashion Inc.',
-      imagen: 'assets/img/camisa.png'
-    },
-    { 
-      nombre: 'Reloj de mano',
-      categoria: 'Accesorios',
-      detalle1: 'Color: Plateado/Bronce',
-    
-      precio: 79.99, 
-      stock: 50,
-      vendedor: 'Fashion Inc.',
-      imagen: 'assets/img/watch.png' 
-    },
-   
-  ];
+  listProducts: Product[] = [];
 
-  constructor() { }
+  currentPage: number = 1;
+  pageSize: number = 20;
+  pageSizes: number[] = [5, 10, 20];
+
+  constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit(): void {
-    console.log(this.productos); // Mostrar el arreglo de productos en consola
+    this.getProducts();
   }
 
-  aprobarProducto(producto: any) {
- 
-    console.log('Producto aprobado:', producto);
+  getProducts() {
+    this.productService.getProducts().subscribe(
+      data => {
+        this.listProducts = data.products;
+      }, error => {
+        console.log(error)
+      })
   }
 
-  rechazarProducto(producto: any) {
- 
-    console.log('Producto rechazado:', producto);
+  agregarProducto() {
+    this.router.navigate(['/agregar-producto']);
+  }
+
+  deleteProduct(id: any) {
+    this.productService.deleteProduct(id).subscribe(data => {
+      this.getProducts();
+    }, error => {
+      console.log(error)
+    })
+  }
+
+  updateProductStatus(id: string | undefined, status: string) {
+    if (!id) {
+      console.error('productId is undefined');
+      return;
+    }
+    
+    this.productService.updateProductStatus(id, status).subscribe(data => {
+      if (status === 'rejected') {
+        this.listProducts = this.listProducts.filter(product => product._id !== id);
+      }
+   
+      this.getProducts();
+    }, error => {
+      console.error(error);
+    });
+  }
+  
+  
+  nextPage() {
+    this.currentPage++;
+  }
+
+  previousPage() {
+    this.currentPage--;
+  }
+
+  pageNumbers(): number[] {
+    const totalPages = Math.ceil(this.listProducts.length / this.pageSize);
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  changePage(pageNumber: number) {
+    this.currentPage = pageNumber;
+  }
+
+  changePageSize(pageSize: any) {
+    this.pageSize = parseInt(pageSize, 10);
+    this.currentPage = 1;
+  }
+
+  @Input() collapsed = false;
+  @Input() screenWidth = 0;
+
+  get getBodyClass(): string {
+    let styleClass = '';
+    if (this.collapsed && this.screenWidth > 768) {
+      styleClass = 'body-trimmed';
+    } else if (this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0) {
+      styleClass = 'body-md-screen';
+    }
+    return styleClass;
   }
 }
