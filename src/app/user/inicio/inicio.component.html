@@ -121,7 +121,7 @@
       <div class="col-6 col-md-4 col-lg-3 mb-4" *ngFor="let product of listProducts">
         <div class="card h-100">
           <!-- Product image-->
-          <img class="card-img-top prod" [src]="product.image">
+          <img class="card-img-top prod" [src]="product.file">
 
           <!-- Product details-->
           <div class="card-body p-4">
@@ -156,12 +156,12 @@
 <h2 class=" title text-center">Our popular categories</h2> <br>
 <!-- Categories End -->
 
-<div class="container mt-4">
-  <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3 g-4">
+<div class="container mt-4 ">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <!-- Tarjeta 1 -->
-    <div class="col">
-      <div class="card  category cat-item d-flex flex-column border mb-4">
-        <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
+    <div class="col " >
+      <div class="card category cat-item d-flex flex-column border mb-4">
+        <a href="#" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
         <a routerLink="/login">
           <img src="assets/img/industria.png" class="img mt-2 card-img-top" alt="Imagen 2" />
@@ -175,10 +175,11 @@
     <!-- Tarjeta 2 -->
     <div class="col">
       <div class="card w-100 category cat-item d-flex flex-column border mb-4">
-        <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
+        <a href="#" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
         <a routerLink="/login">
-          <img src="assets/img/lap.png" class="img mt-2 card-img-top" alt="Imagen 2" /></a>
+          <img src="assets/img/lap.png" class="img mt-2 card-img-top" alt="Imagen 2" />
+        </a>
         <div class="card-body">
           <h5 class="card-title">Technology</h5>
         </div>
@@ -187,11 +188,12 @@
 
     <!-- Tarjeta 3 -->
     <div class="col">
-      <div class="card  category  cat-item d-flex flex-column border mb-4">
-        <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
+      <div class="card category cat-item d-flex flex-column border mb-4">
+        <a href="#" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
         <a routerLink="/login">
-          <img src="assets/img/zapatos.png" class="img mt-2 card-img-top" alt="Imagen 3" /></a>
+          <img src="assets/img/zapatos.png" class="img mt-2 card-img-top" alt="Imagen 3" />
+        </a>
         <div class="card-body">
           <h5 class="card-title">Footwear</h5>
         </div>
@@ -201,45 +203,47 @@
     <!-- Tarjeta 4 -->
     <div class="col">
       <div class="card category cat-item d-flex flex-column border mb-4">
-        <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
+        <a href="#" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
         <a routerLink="/login">
-          <img src="assets/img/belleza.png" class="img mt-2 card-img-top" alt="Imagen 4" /></a>
+          <img src="assets/img/belleza.png" class="img mt-2 card-img-top" alt="Imagen 4" />
+        </a>
         <div class="card-body">
           <h5 class="card-title">Personal Care</h5>
         </div>
       </div>
     </div>
+
+    <!-- Tarjeta 5 -->
     <div class="col">
-      <div class="card  category cat-item d-flex flex-column border mb-4">
-        <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
+      <div class="card category cat-item d-flex flex-column border mb-4">
+        <a href="#" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
-        <br />
         <a routerLink="/login">
-          <img src="assets/img/auto.png" class="img mt-2 card-img-top" width="80%" alt="Imagen 4" /></a>
+          <img src="assets/img/auto.png" class="img mt-2 card-img-top" alt="Imagen 4" />
+        </a>
         <div class="card-body">
-          <br />
-          <h5 class="card-title mt-4">Car accessories</h5>
+          <h5 class="card-title">Car accessories</h5>
         </div>
       </div>
     </div>
 
+    <!-- Tarjeta 6 -->
     <div class="col">
-      <div class="card  category cat-item d-flex flex-column border mb-4">
-        <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
+      <div class="card category cat-item d-flex flex-column border mb-4">
+        <a href="#" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
-
-        <a routerLink="/login"> <br>
-          <img src="assets/img/ropa.png" class="img mt-2 card-img-top" alt="Imagen 3" /></a>
+        <a routerLink="/login">
+          <img src="assets/img/ropa.png" class="img mt-2 card-img-top" alt="Imagen 3" />
+        </a>
         <div class="card-body">
-          <br>
-          <h5 class="card-title mt-5">Clothes</h5>
-          <br />
+          <h5 class="card-title">Clothes</h5>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- Offer Start -->
 <div class="container-fluid offer pt-5">

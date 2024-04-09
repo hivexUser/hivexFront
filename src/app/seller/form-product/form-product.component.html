@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class="row ">
-      <div class="col-8 form mx-auto">
+      <div class="col-12 form col-md-10 mx-auto">
           <h2 class="text-center mb-4">Product Form</h2>
 
 <form [formGroup]="ProductForm"  (ngSubmit)="addProduct()">
@@ -12,7 +12,7 @@
   <div class="row mb-4">
     <div class="col">
       <div data-mdb-input-init class="form-outline">
-        <input type="text" formControlName="name" placeholder="Enter the name" class="form-control in" />
+        <input type="text" id="name" name="name" formControlName="name" placeholder="Enter the name" class="form-control in" />
         <label class="form-label" >Name product</label>
       </div>
     </div>
@@ -24,13 +24,15 @@
     </div>
   </div>
 
-  <!-- Text input -->
-  <div data-mdb-input-init class="form-outline mb-4">
-    <input type="file"  (change)="getFile($event)"  multiple>
-    <label class="form-label"  for="form6Example3">Image</label>
-  </div>
 
   <!-- Text input -->
+ 
+  <!-- Text input -->
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="file" id="image" (change)="getFile($event)"  multiple>
+
+  </div>
+
   <div data-mdb-input-init class="form-outline mb-4">
     <input type="number" id="stock" formControlName="stock" placeholder="Enter the stock" class="form-control in" />
     <label class="form-label"  for="form6Example4">Stock</label>
@@ -48,8 +50,6 @@
     </select>
     <label class="form-label" id="category" for="form6Example5">Category</label>:
   </div>
-
-
 
   <!-- Message input -->
   <div data-mdb-input-init class="form-outline mb-4">
