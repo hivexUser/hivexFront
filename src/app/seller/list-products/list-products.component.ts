@@ -23,7 +23,7 @@ export class ListProductsComponent implements OnInit {
   getProducts() {
     this._productService.getProducts().subscribe(
       (data) => {
-
+console.log(data.products)
         // Filtrar los productos por companyId
         this.listProducts = data.products.filter((product:Product) => product.company_id === this.company);
       },
@@ -43,7 +43,7 @@ export class ListProductsComponent implements OnInit {
     })
   }
 
-  
+
 
 
   }
