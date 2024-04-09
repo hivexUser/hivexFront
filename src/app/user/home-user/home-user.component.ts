@@ -16,6 +16,7 @@ export class HomeUserComponent implements OnInit {
 
   info() {
     this.name = localStorage.getItem('userName') || ''; // Provide a default value of an empty string
-    console.log(this.name);
+    
   }
+  
 }

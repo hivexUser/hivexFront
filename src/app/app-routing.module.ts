@@ -42,6 +42,7 @@ const routes: Routes = [
   // Otras rutas que puedas tener
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
+  {path:'**', redirectTo:'/inicio', pathMatch:"full"}
 ];
 
 @NgModule({

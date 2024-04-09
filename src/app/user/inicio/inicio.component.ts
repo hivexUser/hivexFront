@@ -16,6 +16,7 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.Usuario
     this.getProducts();
+    localStorage.clear();
   }
 
 
@@ -23,10 +24,10 @@ export class InicioComponent implements OnInit {
   getProducts() {
     this._productService.getProducts().subscribe(
       (data) => {
-        console.log(data.products);
+
         // Obtener los últimos 4 productos utilizando slice
         this.listProducts = data.products.slice(-4);
-        console.log(this.listProducts);
+        
       },
       (error) => {
         console.log(error);

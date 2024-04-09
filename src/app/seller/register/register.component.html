@@ -53,57 +53,68 @@
           <form [formGroup]="CompanyForm" (ngSubmit)="addCompany()" class="h-registration-form">
             <div class="h-form-group2">
               <label for="companyName">COMPANY NAME:</label>
-              <input formControlName="companyName" type="text" id="companyName" name="companyName" placeholder="Enter the company name" required />
+              <input formControlName="companyName" type="text" id="companyName" name="companyName"
+                placeholder="Enter the company name" required />
             </div>
             <div class="h-form-group2">
               <label for="companyName">EMAIL:</label>
-              <input formControlName="email" type="text" id="companyEmail" name="companyName" placeholder="Enter the email" required />
+              <input formControlName="email" type="text" id="companyEmail" name="companyName"
+                placeholder="Enter the email" required />
             </div>
 
             <div class="h-form-group2">
               <label for="companyName">PASSWORD:</label>
-              <input formControlName="password" type="password" id="companyPassword" name="companyName" placeholder="Enter password" required />
+              <input formControlName="password" type="password" id="companyPassword" name="companyName"
+                placeholder="Enter password" required />
             </div>
             <div class="h-form-group2">
               <label for="companyName">CONFIRMATION:</label>
-              <input formControlName="companyConfirmation" type="password" id="companyConfirmation" name="companyName" placeholder="Enter password" required />
+              <input formControlName="companyConfirmation" type="password" id="companyConfirmation" name="companyName"
+                placeholder="Enter password" required />
             </div>
 
             <div class="h-form-group">
               <label for="country">COUNTRY:</label>
-              <input formControlName="companyCountry" type="text" id="country" name="country" placeholder="Enter your country" required />
+              <input formControlName="companyCountry" type="text" id="country" name="country"
+                placeholder="Enter your country" required />
             </div>
 
             <div class="h-form-group">
               <label for="productType">PRODUCT TYPE:</label>
-              <input type="text" formControlName="productType" id="productType" name="productType" placeholder="Enter the product type" required />
+              <input type="text" formControlName="productType" id="companyType" name="companyType"
+                placeholder="Enter the product type" required />
             </div>
 
             <div class="h-form-group">
               <label for="countryCode">PHONE:</label>
               <div class="phone-container">
                 <input type="tel" id="countryCode" name="countryCode" placeholder="+" maxlength="4" required />
-                <input type="tel" formControlName="companyPhone" id="phone" name="phone" maxlength="11" placeholder="Enter the phone number"
-                  required />
+                <input type="tel" formControlName="companyPhone" id="phone" name="phone" maxlength="11"
+                  placeholder="Enter the phone number" required />
               </div>
             </div>
 
             <div class="h-form-group">
               <label for="contactName">CONTACT PERSON'S NAME:</label>
-              <input type="text" formControlName="companyContact" id="contactName" name="contactName" placeholder="Enter the contact person's name"
-                required />
+              <input type="text" formControlName="companyContact" id="contactName" name="contactName"
+                placeholder="Enter the contact person's name" required />
             </div>
-
+            <br>
             <div class="h-form-group">
               <label for="contactRFC">CONTACT PERSON'S RFC:</label>
-              <input type="text" formControlName="companyRfc" id="contactRFC" name="contactRFC" placeholder="Enter the contact person's RFC"
-                required />
+              <input type="file" id="companyRfc" formControlName="companyRfc" (change)="getFile($event)" multiple>
+
             </div>
             <br>
 
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-success" [disabled]="loading" *ngIf="loading">
+                <span class="spinner-border spinner-border-sm mb-2"></span>
+                Loading..
+              </button>
+            </div>
 
-
-            <button type="submit" class="h-submit-button">Register Company</button>
+            <button type="submit" class="h-submit-button ">Register Company</button>
 
           </form>
         </div>
