@@ -30,18 +30,17 @@ const routes: Routes = [
   { path: 'mensajes-clientes', component: MensajesClientesComponent},
   { path: 'allproducts', component: AllproductsComponent},
   { path: 'body', component: BodyComponent},
-  
-
-  
-  
-  
-  
 
 
- 
+
+
+
+
+
+
+
   // Otras rutas que puedas tener
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  {path: '', redirectTo: '/inicio', pathMatch: 'full'},
+  
   {path:'**', redirectTo:'/inicio', pathMatch:"full"}
 ];
 

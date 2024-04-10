@@ -13,7 +13,9 @@ interface SideNaavToggle{
 })
 export class AppComponent {
   title = 'Hivexlat';
-  
+  aparecer: boolean = false;
+  id:any= localStorage.getItem('companyId' || null)
+
   showSidenav: boolean = false;
 
   constructor(private router: Router) {
@@ -21,15 +23,22 @@ export class AppComponent {
       if (event instanceof NavigationEnd) {
         this.showSidenav = this.shouldShowSidenav(event.url);
       }
+      if(this.id == null){
+        this.aparecer = false
+      }
+
     });
   }
+
+
+
   shouldShowSidenav(url: string): boolean {
     // Aquí verificamos si la ruta actual es 'dashboard' o 'usuarios'
     return url.includes('/dashboard') || url.includes('/usuarios') || url.includes('/agregar-producto') || url.includes('/empresas') || url.includes('/allproducts') || url.includes('/product-list')|| url.includes('/mensajes-clientes')|| url.includes('/productos') || url.includes('/files');
   }
 
 
-  
+
   isSideNavCollapsed = false;
   screenWidth = 0;
 
