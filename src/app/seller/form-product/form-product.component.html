@@ -31,7 +31,11 @@
     <label class="form-label"  for="form6Example3">Image</label>
   </div>
   <!-- Text input -->
-  
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="file" id="image" (change)="getFile($event)"  multiple>
+    
+  </div>
+
   <div data-mdb-input-init class="form-outline mb-4">
     <input type="number" id="stock" formControlName="stock" placeholder="Enter the stock" class="form-control in" />
     <label class="form-label"  for="form6Example4">Stock</label>

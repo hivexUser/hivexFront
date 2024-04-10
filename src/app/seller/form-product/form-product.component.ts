@@ -25,7 +25,7 @@ export class FormProductComponent implements OnInit {
   id: string | null = null;
   img:File | null = null;
 
-
+ 
 
   constructor(private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute,
     private Toast: ToastrService, private _productService: ProductService) {
@@ -109,7 +109,7 @@ export class FormProductComponent implements OnInit {
             stock: data.product.stock,
             description: data.product.description,
             category: data.product.category,
-            file: data.product.image
+            file: data.product.file
             // Establecemos el valor de la imagen
           });
         }

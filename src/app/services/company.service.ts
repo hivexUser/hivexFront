@@ -19,7 +19,9 @@ export class CompanyService {
 // }
 
 
-addCompnay(Company:company):Observable<any>{
+addCompnay(Company:FormData):Observable<any>{
   return this.http.post<any>(this.apiUrl, Company);
 }
+
 }
+ 
