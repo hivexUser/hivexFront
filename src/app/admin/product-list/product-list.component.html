@@ -1,32 +1,34 @@
 
+
 <div class="body" [ngClass]="getBodyClass">
-  
+
 <div class="container">
   <div class="table-container">
-   
+    <h1 class=" text-center">Lista de productos</h1>
 
     <table class="data-table">
       <thead>
         <tr>
           <th>Stock</th>
-          <th>Products</th>
-          <th>Image</th>
-          <th>Description</th>
-          <th>Price</th>
-          <th>Action</th>
+          <th>Producto</th>
+          <th>Imagen</th>
+          <th>Descripcion</th>
+          <th>Precio</th>
+          <th>Status</th>
+          <th>Accion</th>
         </tr>
       </thead>
       <tbody id="tableBody">
         <tr *ngFor="let product of listProducts.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index" class="border-b hover:bg-gray-100">
           <td class="p-3">{{product.stock}}</td>
           <td class="p-3">{{product.name}}</td>
-          <td class="p-3"><img [src]="product.image" alt="" style="max-width: 100px;"></td>
+          <td class="p-3"><img [src]="product.file" alt="" style="max-width: 100px;"></td>
           <td class="p-3">{{product.description}}</td>
           <td class="p-3">{{product.price}}</td>
+          <td class="p-3">{{product.status}}</td>
           <td class="p-3">
-            <button class="detail">Edit</button>
-            <button (click)="deleteProduct(product._id)" class="detail">Delete</button>
-            <button class="detail">Details</button>
+            <button (click)="acceptStatus(product._id)" class="detail me-2">Aprobar</button>
+            <button (click)="rejectStatus(product._id)"class="detail">Desaprobar</button><br>
           </td>
         </tr>
       </tbody>
@@ -41,6 +43,6 @@
 </div>
 
 
-  <button class="detail2" (click)="agregarProducto()">Agregar Producto</button>
-  
+
+
 </div>

@@ -1,18 +1,21 @@
+<div class="body">
+  <div class="admin-panel">
+    <h2 class="titulo text-center">Empresas</h2>
+    <div class="company-list">
+      <div class="company-item" *ngFor="let company of listCompanies">
+        <h3></h3>
+        <p><strong>Nombre:</strong> {{company.companyName}}</p>
+        <p><strong>Email:</strong> <a href="{{company.pdf?company.pdf:'no tiene'}}"> Link PDF</a></p>
+        <p><strong>Documentos:</strong> {{company.companyRfc}}</p>
+        <p><strong>Telefono:</strong> {{company.companyPhone}}</p>
+        <p><strong>Persona:</strong> {{company.companyContact}}</p>
+        <p><strong>Status:</strong> {{company.status}}</p>
 
-<div class="body" [ngClass]="getBodyClass">
-<div class="admin-panel">
-  <h2 class="titulo">Empresas</h2>
-  <div class="company-list">
-    <div class="company-item" *ngFor="let company of companies">
-      <h3>{{ company.name }}</h3>
-      <p><strong>Dirección:</strong> {{ company.address }}</p>
-      <p><strong>Contacto:</strong> {{ company.contact }}</p>
-      <p><strong>Documentos:</strong> {{ company.documents.join(', ') }}</p>
-      <div class="approval-buttons">
-        <button class="approve-button" (click)="aprobarEmpresa(company)">Aprobar</button>
-        <button class="reject-button" (click)="rechazarEmpresa(company)">Rechazar</button>
+        <div class="approval-buttons">
+          <button class="approve-button">Aprobar</button>
+          <button class="reject-button">Rechazar</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>

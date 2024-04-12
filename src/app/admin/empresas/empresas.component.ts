@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { company } from 'src/app/models/company';
+import { CompanyService } from 'src/app/services/company.service';
+import { map } from 'rxjs/operators';
 
-interface Company {
-  name: string;
-  address: string;
-  contact: string;
-  documents: string[];
-}
 
 @Component({
   selector: 'app-empresas',
@@ -13,49 +12,25 @@ interface Company {
   styleUrls: ['./empresas.component.css']
 })
 export class EmpresasComponent implements OnInit {
-  companies: Company[] = [
-    {
-      name: 'Empresa ABC',
-      address: 'Calle Principal, Ciudad XYZ',
-      contact: 'John Doe - johndoe@example.com',
-      documents: ['Contrato de Constitución', 'Estados Financieros']
-    },
-    {
-      name: 'Empresa XYZ',
-      address: 'Avenida Principal, Ciudad ABC',
-      contact: 'Jane Smith - janesmith@example.com',
-      documents: ['Declaración de Impuestos', 'Registro Comercial']
-    },
-    // Agrega más empresas según sea necesario
-  ];
+  listCompanies:any[]=[];
 
-  constructor() { }
+  constructor(private router: Router, private _companies: CompanyService, private Toast: ToastrService) { }
 
   ngOnInit(): void {
-    console.log(this.companies); // Mostrar el arreglo de empresas en consola
+    this.getCompanies();
   }
 
-  aprobarEmpresa(company: Company) {
-    console.log('Empresa aprobada:', company);
-    // Lógica para aprobar la empresa
-  }
+  getCompanies() {
 
-  rechazarEmpresa(company: Company) {
-    console.log('Empresa rechazada:', company);
-    // Lógica para rechazar la empresa
-  }
+    this._companies.getCompanies().subscribe(
+      (data) => {
+        console.log(data.companies)
 
-  
-  @Input() collapsed = false;
-  @Input() screenWidth = 0;
-
-  get getBodyClass(): string {
-    let styleClass = '';
-    if (this.collapsed && this.screenWidth > 768) {
-      styleClass = 'body-trimmed';
-    } else if (this.collapsed && this.screenWidth <= 768 && this.screenWidth > 0) {
-      styleClass = 'body-md-screen';
-    }
-    return styleClass;
+        this.listCompanies = data.companies;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

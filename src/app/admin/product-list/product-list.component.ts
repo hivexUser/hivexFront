@@ -1,7 +1,10 @@
+import { ProductService } from 'src/app/services/product.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/models/add-product';
-import { ProductService } from 'src/app/services/add-product.service';
+import { Product } from 'src/app/models/products';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-product-list',
@@ -9,30 +12,71 @@ import { ProductService } from 'src/app/services/add-product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  listProducts: Product []=[];
+  listProducts: any []=[];
 
   currentPage: number = 1;
   pageSize: number = 20;
   pageSizes: number[] = [5, 10, 20];
+  color: string = 'success';
 
-
-  constructor(private router: Router, private productService: ProductService) { }
+  constructor(private router: Router, private productService: ProductService, private Toast: ToastrService) { }
 
   ngOnInit(): void {
     this.getProducts();
+
   }
 
   getProducts(){
     this.productService.getProducts().subscribe(
       data=>{
-      this.listProducts=data.products;
-    },error=>{
-    console.log(error)
-    })
+        this.listProducts=data.products;
+        
+      },
+      error=>{
+        console.log(error);
+      }
+    );
   }
 
   agregarProducto() {
     this.router.navigate(['/agregar-producto']);
+  }
+
+  rejectStatus(_id:any ){
+    const product = {
+      _id: _id,
+      status: "reject"
+    };
+    this.productService.editStatus(product).subscribe(data=>{
+      this.getProducts();
+      this.router.navigate(['/product-list'])
+      this.Toast.success('Product edited successfully', 'Success');
+    }
+    ,error=>{
+      this.Toast.error('Error editing product', 'Error');
+      console.log(error)
+    })
+  }
+    acceptStatus(_id:any ){
+      const product = {
+        _id: _id,
+        status: "accept"
+      };
+      this.productService.editStatus(product).subscribe(data=>{
+        this.getProducts();
+        this.router.navigate(['/product-list'])
+        this.Toast.success('Product edited successfully', 'Success');
+      }
+      ,error=>{
+        this.Toast.error('Error editing product', 'Error');
+        console.log(error)
+      })
+
+
+
+
+
+
   }
 
   deleteProduct(id:any){
@@ -68,7 +112,7 @@ export class ProductListComponent implements OnInit {
     this.currentPage = 1;
   }
 
-  
+
   @Input() collapsed = false;
   @Input() screenWidth = 0;
 

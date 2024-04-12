@@ -10,8 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./list-products.component.css']
 })
 export class ListProductsComponent implements OnInit {
-  listProducts:Product []=[];
-  company:string = localStorage.getItem('companyId') || '{}';
+  listProducts: Product[] = [];
+  company: string = localStorage.getItem('companyId') || '{}';
   constructor(private router: Router, private _productService: ProductService, private Toast: ToastrService) { }
 
   ngOnInit(): void {
@@ -23,9 +23,8 @@ export class ListProductsComponent implements OnInit {
   getProducts() {
     this._productService.getProducts().subscribe(
       (data) => {
-console.log(data.products)
-        // Filtrar los productos por companyId
-        this.listProducts = data.products.filter((product:Product) => product.company_id === this.company);
+        
+        this.listProducts = data.products.filter((product: Product) => product.company_id === this.company);
       },
       (error) => {
         console.log(error);
@@ -33,12 +32,12 @@ console.log(data.products)
     );
   }
 
-  deleteProduct(_id:any){
-    this._productService.deleteProduct(_id).subscribe(data=>{
-    this.getProducts();
-    this.router.navigate(['/listProducts'])
-    this.Toast.info('Product deleted successfully', 'Success');
-    },error=>{
+  deleteProduct(_id: any) {
+    this._productService.deleteProduct(_id).subscribe(data => {
+      this.getProducts();
+      this.router.navigate(['/listProducts'])
+      this.Toast.info('Product deleted successfully', 'Success');
+    }, error => {
       console.log(error)
     })
   }
@@ -46,6 +45,6 @@ console.log(data.products)
 
 
 
-  }
+}
 
 
