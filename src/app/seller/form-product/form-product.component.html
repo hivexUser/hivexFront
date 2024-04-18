@@ -4,71 +4,101 @@
 
 <div class="container">
   <div class="row ">
-      <div class="col-12 form col-md-10 mx-auto">
-          <h2 class="text-center mb-4">Product Form</h2>
+    <div class="col-12 form col-md-10 mx-auto">
+      <h2 class="text-center mb-4">Product Form</h2>
 
-<form [formGroup]="ProductForm"  (ngSubmit)="addProduct()">
-  <!-- 2 column grid layout with text inputs for the first and last names -->
-  <div class="row mb-4">
-    <div class="col">
-      <div data-mdb-input-init class="form-outline">
-        <input type="text" id="name" name="name" formControlName="name" placeholder="Enter the name" class="form-control in" />
-        <label class="form-label" >Name product</label>
-      </div>
+      <form [formGroup]="ProductForm" (ngSubmit)="addProduct()">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <label class="form-label">Name product</label>
+              <input type="text" id="name" name="name" formControlName="name" placeholder="Enter the name"
+                class="form-control in" />
+
+              <span *ngIf="ProductForm.get('name')?.hasError('required') && ProductForm.get('name')?.touched"
+                class="text-danger errorLabel">
+                <strong>Name</strong> it is required.
+              </span>
+            </div>
+          </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <label class="form-label" for="form6Example2">Price product</label>
+              <input type="number" id="price" formControlName="price" placeholder="Enter the price"
+                class="form-control in" />
+
+              <span *ngIf="ProductForm.get('price')?.hasError('required') && ProductForm.get('price')?.touched"
+                class="text-danger errorLabel">
+                <strong>Price</strong> it is required.
+              </span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Text input -->
+
+        <!-- Text input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <input type="file" id="image" (change)="getFile($event)" multiple>
+
+        </div>
+
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form6Example4">Stock</label>
+          <input type="number" id="stock" formControlName="stock" placeholder="Enter the stock"
+            class="form-control in" />
+
+          <span *ngIf="ProductForm.get('stock')?.hasError('required') && ProductForm.get('stock')?.touched"
+            class="text-danger errorLabel">
+            <strong>Stock</strong> it is required.
+          </span>
+        </div>
+
+        <!-- Email input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" id="category" for="form6Example5">Category</label>:
+
+          <select id="form6Example5" formControlName="category" class="form-control">
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Books">Books</option>
+            <option value="Home & Garden">Home & Garden</option>
+            <option value="Sports & Outdoors">Sports & Outdoors</option>
+          </select>
+
+          <span *ngIf="ProductForm.get('category')?.hasError('required') && ProductForm.get('category')?.touched"
+            class="text-danger errorLabel">
+            <strong>Category</strong> it is required.
+          </span>
+        </div>
+
+        <!-- Message input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form6Example7">Description product</label>
+          <textarea class="form-control" formControlName="description" placeholder="Enter the description product"
+            id="description" rows="4"></textarea>
+
+          <span *ngIf="ProductForm.get('description')?.hasError('required') && ProductForm.get('description')?.touched"
+            class="text-danger errorLabel">
+            <strong>Description</strong> it is required.
+          </span>
+        </div>
+
+
+        <div class="d-flex justify-content-center align-items-center">
+          <button class="btn btn-success" [disabled]="loading" *ngIf="loading">
+            <span class="spinner-border spinner-border-sm mb-2"></span>
+            Loading..
+          </button>
+        </div> <br>
+        <!-- Submit button -->
+        <button *ngIf="!loading" [disabled]="ProductForm.invalid" data-mdb-ripple-init type="submit"
+          class="btn in black btn-block mb-4">Create</button>
+
+      </form>
     </div>
-    <div class="col">
-      <div data-mdb-input-init class="form-outline">
-        <input type="number" id="price" formControlName="price" placeholder="Enter the price" class="form-control in" />
-        <label class="form-label"  for="form6Example2">Price product</label>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Text input -->
- 
-  <!-- Text input -->
-  <div data-mdb-input-init class="form-outline mb-4">
-    <input type="file" id="image" (change)="getFile($event)"  multiple>
-
-  </div>
-
-  <div data-mdb-input-init class="form-outline mb-4">
-    <input type="number" id="stock" formControlName="stock" placeholder="Enter the stock" class="form-control in" />
-    <label class="form-label"  for="form6Example4">Stock</label>
-  </div>
-
-  <!-- Email input -->
-  <div data-mdb-input-init class="form-outline mb-4">
-
-    <select id="form6Example5" formControlName="category" class="form-control">
-        <option value="Electronics">Electronics</option>
-        <option value="Clothing">Clothing</option>
-        <option value="Books">Books</option>
-        <option value="Home & Garden">Home & Garden</option>
-        <option value="Sports & Outdoors">Sports & Outdoors</option>
-    </select>
-    <label class="form-label" id="category" for="form6Example5">Category</label>:
-  </div>
-
-  <!-- Message input -->
-  <div data-mdb-input-init class="form-outline mb-4">
-    <textarea class="form-control" formControlName="description" placeholder="Enter the description product" id="description" rows="4"></textarea>
-    <label class="form-label"  for="form6Example7">Description product</label>
-  </div>
-
-
-  <div class="d-flex justify-content-center align-items-center">
-    <button class="btn btn-success" [disabled]="loading" *ngIf="loading">
-      <span class="spinner-border spinner-border-sm mb-2"></span>
-      Loading..
-    </button>
-  </div> <br>
-  <!-- Submit button -->
-  <button *ngIf="!loading" data-mdb-ripple-init type="submit" class="btn in black btn-block mb-4">Create</button>
-
-</form>
-      </div>
   </div>
 </div>
 

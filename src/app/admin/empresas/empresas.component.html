@@ -12,8 +12,8 @@
         <p><strong>Status:</strong> {{company.status}}</p>
 
         <div class="approval-buttons">
-          <button class="approve-button">Aprobar</button>
-          <button class="reject-button">Rechazar</button>
+          <button class="approve-button" (click)="acceptStatus(company._id)">Aprobar</button>
+          <button class="reject-button"  (click)="rejectStatus(company._id)">Rechazar</button>
         </div>
       </div>
     </div>

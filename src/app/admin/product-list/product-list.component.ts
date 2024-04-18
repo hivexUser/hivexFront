@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe(
       data=>{
         this.listProducts=data.products;
-        
+
       },
       error=>{
         console.log(error);
@@ -71,11 +71,6 @@ export class ProductListComponent implements OnInit {
         this.Toast.error('Error editing product', 'Error');
         console.log(error)
       })
-
-
-
-
-
 
   }
 

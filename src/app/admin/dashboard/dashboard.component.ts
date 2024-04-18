@@ -11,10 +11,11 @@ interface SideNaavToggle{
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+admin = localStorage.getItem('admin' || null)
   constructor() { }
 
   ngOnInit(): void {
+localStorage.setItem('admin', '1')
   }
   isSideNavCollapsed = false;
   screenWidth = 0;

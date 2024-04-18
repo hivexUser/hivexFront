@@ -33,4 +33,38 @@ export class EmpresasComponent implements OnInit {
       }
     );
   }
+
+  rejectStatus(_id:any ){
+    const company = {
+      _id: _id,
+      status: "reject"
+    };
+    this._companies.editStatus(company).subscribe(data=>{
+      this.getCompanies();
+      this.router.navigate(['/empresas'])
+      this.Toast.success('Company edited successfully', 'Success');
+    }
+    ,error=>{
+      this.Toast.error('Error editing company', 'Error');
+      console.log(error)
+    })
+  }
+
+  acceptStatus(_id:any ){
+    const company = {
+      _id: _id,
+      status: "accept"
+    };
+    this._companies.editStatus(company).subscribe(data=>{
+      this.getCompanies();
+      this.router.navigate(['/empresas'])
+      this.Toast.success('Company edited successfully', 'Success');
+    }
+    ,error=>{
+      this.Toast.error('Error editing company', 'Error');
+      console.log(error)
+    })
+
+}
+
 }

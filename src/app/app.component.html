@@ -1,6 +1,9 @@
-<app-sidenav *ngIf="showSidenav && !id" (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
 
-<app-header *ngIf="showSidenav && !id" [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-header>
+<app-sidenav *ngIf="showSidenav == true" (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
 
+<app-header *ngIf="showSidenav === true"
+[collapsed]="isSideNavCollapsed"
+[screenWidth]="screenWidth"
+></app-header>
 
 <router-outlet></router-outlet>

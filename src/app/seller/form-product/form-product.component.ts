@@ -35,7 +35,7 @@ export class FormProductComponent implements OnInit {
       stock: ['', Validators.required],
       category: ['', Validators.required],
       description: ['', Validators.required],
-      file: ['', Validators.required]
+      
 
     })
     this.id = this.aRouter.snapshot.paramMap.get('id')
