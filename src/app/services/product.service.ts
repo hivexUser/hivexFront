@@ -10,6 +10,7 @@ export class ProductService {
   url = 'https://backendlyon.onrender.com/product/';
   urldelete='https://backendlyon.onrender.com/product/delete/'
   urlupdate='https://backendlyon.onrender.com/product/updateStatus'
+  urlupdateProduct='https://backendlyon.onrender.com/product/update/'
   constructor(private http: HttpClient) { }
 
   getProducts():Observable<any>{
@@ -26,7 +27,7 @@ export class ProductService {
   }
 
   editarProduct( Product:FormData):Observable<any>{
-    return this.http.put(this.urlupdate, Product);
+    return this.http.put(this.urlupdateProduct, Product);
   }
 
   getProductById(id: string):Observable<any>{

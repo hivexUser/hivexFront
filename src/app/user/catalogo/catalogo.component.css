@@ -1,6 +1,6 @@
 .card {
 
-height: 310px;
+height: 350px;
 }
 
 .card-title{
@@ -19,6 +19,7 @@ height: 310px;
 }
 .card img {
   border-radius: 10px 10px 0 0;
+  margin-left: 2;
 
 }
 .img{

@@ -35,13 +35,20 @@ export class LoginSellerComponent implements OnInit {
     this.loading = true;
     this._Login.loginCompany(LoginUser).subscribe(
       response => {
-        // Manejar la respuesta de la API en caso de éxito
-        
-
-
+console.log(response);
         if (response && response.company && response.company._id) {
           localStorage.setItem('companyId', response.company._id);
         localStorage.setItem('companyName', response.company.companyName);
+        if (response.company.status === 'new') {
+          this.toastr.info('Please wait for the admin to approve your account', 'Account not approved');
+          this.loading = false;
+          return;
+        }
+        if (response.company.status === 'reject') {
+          this.toastr.error('Your account has been rejected', 'Account rejected');
+          this.loading = false;
+          return;
+        }
           this.router.navigate(['/dashboardSeller']);
           this.toastr.success('Welcome to "Hivex"', 'Login successfull');
           this.loading = false;

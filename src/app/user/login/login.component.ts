@@ -41,8 +41,9 @@ export class LoginComponent implements OnInit {
 
     this._Login.login(loginUser).subscribe(
       response => {
-        // Manejar la respuesta de la API en caso de éxito
-        console.log(response);
+
+       
+
         localStorage.setItem('userId', response.createUser.id);
         localStorage.setItem('userName', response.createUser.name);
 
@@ -54,7 +55,7 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           this.toastr.error('Email o contraseña incorrectos', 'Error en el inicio de sesión');
         }
-      }, 
+      },
       error => {
         this.loading = false;
         this.toastr.error('User incorrect', 'Error');

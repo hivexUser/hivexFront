@@ -5,8 +5,8 @@
       <div class="company-item" *ngFor="let company of listCompanies">
         <h3></h3>
         <p><strong>Nombre:</strong> {{company.companyName}}</p>
-        <p><strong>Email:</strong> <a href="{{company.pdf?company.pdf:'no tiene'}}"> Link PDF</a></p>
-        <p><strong>Documentos:</strong> {{company.companyRfc}}</p>
+        <p><strong>Email:</strong> {{company.email}}</p>
+        <p><strong>Documentos:</strong><a href="{{company.pdf?company.pdf:'no tiene'}}"> Link PDF</a></p>
         <p><strong>Telefono:</strong> {{company.companyPhone}}</p>
         <p><strong>Persona:</strong> {{company.companyContact}}</p>
         <p><strong>Status:</strong> {{company.status}}</p>

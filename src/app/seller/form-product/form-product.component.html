@@ -61,11 +61,16 @@
           <label class="form-label" id="category" for="form6Example5">Category</label>:
 
           <select id="form6Example5" formControlName="category" class="form-control">
+            <option value="Home goods">Home goods</option>
+            <option value="Footwear">Footwear</option>
+            <option value="Tools">Tools</option>
             <option value="Electronics">Electronics</option>
-            <option value="Clothing">Clothing</option>
+            <option value="Clothing">Sport</option>
             <option value="Books">Books</option>
-            <option value="Home & Garden">Home & Garden</option>
-            <option value="Sports & Outdoors">Sports & Outdoors</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Personal care">Personal care</option>
+            <option value="Automobilies">Automobilies</option>
+            <option value="Clothes">Clothes</option>
           </select>
 
           <span *ngIf="ProductForm.get('category')?.hasError('required') && ProductForm.get('category')?.touched"
