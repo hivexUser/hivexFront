@@ -131,7 +131,7 @@
             <br>
             <div class="h-form-group">
               <label for="contactRFC">CONTACT PERSON'S RFC:</label>
-              <input type="file" id="companyRfc" formControlName="companyRfc" (change)="getFile($event)" multiple>
+              <input type="file" id="companyRfc" formControlName="file" (change)="getFile($event)" multiple>
 
             </div>
             <br>
@@ -143,7 +143,7 @@
               </button>
             </div>
 
-            <button type="submit" [disabled]="CompanyForm.invalid" class="bton btn-primary">Register Company</button>
+            <button type="submit"  class="bton btn-primary">Register Company</button>
 
           </form>
         </div>

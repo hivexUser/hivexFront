@@ -31,13 +31,14 @@ export class RegisterComponent implements OnInit {
       file: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      status: ['', Validators.required]
+      status: ['', Validators.required],
+      companyConfirmation: ['', Validators.required]
     })
   }
 
 
   ngOnInit() {
-console.log('hola', this.loading)
+
   }
 
   getFile(event: Event) {

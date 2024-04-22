@@ -8,9 +8,6 @@ import { ToastrService } from 'ngx-toastr';
 import { LocalizedString } from '@angular/compiler';
 
 
-
-
-
 @Component({
   selector: 'app-form-product',
   templateUrl: './form-product.component.html',
@@ -35,7 +32,8 @@ export class FormProductComponent implements OnInit {
       stock: ['', Validators.required],
       category: ['', Validators.required],
       description: ['', Validators.required],
-      
+      color: ['', Validators.required],
+
 
     })
     this.id = this.aRouter.snapshot.paramMap.get('id')
@@ -67,6 +65,8 @@ export class FormProductComponent implements OnInit {
     Product.append('stock', this.ProductForm.get('stock')?.value);
     Product.append('category', this.ProductForm.get('category')?.value);
     Product.append('description', this.ProductForm.get('description')?.value);
+    Product.append('color', this.ProductForm.get('color')?.value);
+    Product.append('brand', localStorage.getItem('companyName') || '');
 
     Product.append('file', this.archivo!);
     Product.append('status', 'new');
@@ -111,7 +111,9 @@ export class FormProductComponent implements OnInit {
             stock: data.product.stock,
             description: data.product.description,
             category: data.product.category,
-            file: data.product.file
+            file: data.product.file,
+            color: data.product.color,
+            brand: data.product.brand,
             // Establecemos el valor de la imagen
           });
         }

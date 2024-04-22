@@ -1,5 +1,8 @@
 <app-header-user></app-header-user>
-
+<div class="overlay"  *ngIf="loading">
+  <div class="spinner"></div>
+  <img src="assets/img/HIVEX.png"  class="spinner" alt="">
+</div>
 <div class="container-fluid mb-5">
   <div class="row border-top px-xl-5">
 
@@ -130,7 +133,8 @@
               <!-- Product name-->
               <h5 class="fw-bolder">{{product.name}}</h5>
               <!-- Product price-->
-              ${{product.price}}.00
+              <p>${{product.price}}.00</p>
+              <br>
             </div>
           </div>
           <!-- Product actions-->

@@ -8,4 +8,6 @@ export class Product{
   category: string="";
   company_id: string="";
   status: string="";
+  brand: string="";
+  color: string="";
 }

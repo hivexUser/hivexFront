@@ -125,9 +125,11 @@
           <div class="card-body p-4">
             <div class="text-center">
               <!-- Product name-->
-              <h5 class="fw-bolder">{{product.name}}</h5>
+              <h4 class="fw-bolder">{{product.name}}</h4>
+
               <!-- Product price-->
-              ${{product.price}}.00
+              <p>${{product.price}}.00</p>
+<br>
             </div>
           </div>
           <!-- Product actions-->
@@ -188,7 +190,7 @@
       <div class="card cat-item d-flex flex-column border mb-4" (click)="capturarTitulo($event)">
         <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
-        <a routerLink="/Catalogue">
+        <a >
           <img src="assets/img/zapatos.png" class="img mt-2 card-img-top" alt="Imagen 3"></a>
         <div class="card-body">
           <h5 class="card-title">Footwear</h5>
@@ -201,7 +203,7 @@
       <div class="card cat-item d-flex flex-column border mb-4" (click)="capturarTitulo($event)">
         <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
-        <a routerLink="/Catalogue">
+        <a >
           <img src="assets/img/tools.png" class="img mt-2 card-img-top" alt="Imagen 3"></a>
         <div class="card-body">
           <h5 class="card-title">Tools</h5>
@@ -214,7 +216,7 @@
         <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
         <br>
-        <a routerLink="/Catalogue">
+        <a >
           <img src="assets/img/deporte.png" class="img mt-5 card-img-top" width="500px" alt="Imagen 3"></a>
         <div class="card-body">
           <h5 class="card-title mt-5">Sport</h5>
@@ -223,11 +225,11 @@
     </div>
     <!-- Tarjeta 3 -->
     <div class="col">
-      <div class="card cat-item d-flex flex-column border mb-4">
+      <div class="card cat-item d-flex flex-column border mb-4"  (click)="capturarTitulo($event)">
         <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
 
         <p class="text-right m-2">100 Products</p>
-        <a routerLink="/Catalogue">
+        <a >
           <img src="assets/img/mueble.png" class="img mt-5 card-img-top" alt="Imagen 3"></a>
         <div class="card-body">
           <h5 class="card-title mt-3">Furniture</h5>
@@ -236,10 +238,10 @@
     </div>
     <!-- Tarjeta 4 -->
     <div class="col">
-      <div class="card cat-item d-flex flex-column border mb-4">
+      <div class="card cat-item d-flex flex-column border mb-4"  (click)="capturarTitulo($event)">
         <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
-        <a routerLink="/Catalogue">
+        <a >
           <img src="assets/img/belleza.png" class="img mt-2 card-img-top" alt="Imagen 4">
         </a>
         <div class="card-body">
@@ -248,11 +250,11 @@
       </div>
     </div>
     <div class="col">
-      <div class="card cat-item d-flex flex-column border mb-4">
+      <div class="card cat-item d-flex flex-column border mb-4"  (click)="capturarTitulo($event)">
         <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p>
         <br>
-        <a routerLink="/Catalogue">
+        <a >
           <img src="assets/img/auto.png" class="img mt-2 card-img-top" width="80%" alt="Imagen 4"></a>
         <div class="card-body">
           <br>
@@ -263,10 +265,10 @@
     </div>
 
     <div class="col">
-      <div class="card cat-item d-flex flex-column border mb-4">
+      <div class="card cat-item d-flex flex-column border mb-4"  (click)="capturarTitulo($event)">
         <a href="" class="cat-img position-relative overflow-hidden mb-3"></a>
         <p class="text-right m-2">100 Products</p> <br> <br>
-        <a routerLink="/Catalogue">
+        <a >
           <img src="assets/img/ropa.png" class="img mt-2 card-img-top" alt="Imagen 3">
         </a>
         <div class="card-body"> <br>

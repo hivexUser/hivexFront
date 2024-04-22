@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class DetailComponent implements OnInit {
 _id=localStorage.getItem('productId') || '';
 producto:any;
+
   constructor(private router: Router, private _productService: ProductService,) { }
 
   ngOnInit(): void {
@@ -21,6 +22,7 @@ producto:any;
     this._productService.getProductById(this._id).subscribe(
       (data) => {
         this.producto = data.product;
+        console.log(this.producto);
       },
       (error) => {
         console.log(error);

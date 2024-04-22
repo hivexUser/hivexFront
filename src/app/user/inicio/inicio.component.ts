@@ -11,12 +11,17 @@ import { ProductService } from 'src/app/services/product.service';
 export class InicioComponent implements OnInit {
   Usuario = '';
   listProducts: Product[] = [];
+  loading= true;
   constructor( private router: Router, private _productService: ProductService,) { }
 
   ngOnInit(): void {
     this.Usuario
     this.getProducts();
-    localStorage.clear();
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userId');
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
   }
 
 

@@ -14,25 +14,26 @@ export class CatalogoComponent implements OnInit {
 listProducts: Product[] = [];
 category: string = '';
 categoryName: string = '';
+titulo:any;
   constructor(private router: Router, private _productService: ProductService, private _Compartido: CompartdoService) { }
 
   ngOnInit(): void {
     localStorage.removeItem('productId');
 this.getProducts();
-
 this.category=localStorage.getItem('categoria') || '';
+this.titulo=this.category
 
   }
 
   getProducts() {
     this._productService.getProducts().subscribe(
       (data) => {
-
       const pruductsType = data.products.filter((product: Product) => product.category === this.category  && product.status === 'accept')
       this.listProducts = pruductsType;
-      
-      },
-      (error) => {
+      if(this.listProducts.length === 0){
+        this.titulo = 'There are no products in this category';
+      }
+    },(error) => {
         console.log(error);
       }
     );
