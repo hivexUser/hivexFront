@@ -18,14 +18,15 @@ import { AllproductsComponent } from './admin/allproducts/allproducts.component'
 
 import { SellerRoutingModule } from './seller/seller.routing';
 import { BodyComponent } from './admin/body/body.component';
+import { PermissionsAdminGuard } from './guards/permissions-admin.guard';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'product-list', component: ProductListComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate:[PermissionsAdminGuard] },
+  { path: 'product-list', component: ProductListComponent, canActivate:[PermissionsAdminGuard]},
   { path: 'agregar-producto', component: AgregarProductoComponent},
-  { path: 'usuarios', component: UserListComponent},
+  { path: 'usuarios', component: UserListComponent, canActivate:[PermissionsAdminGuard]},
   { path: 'productos', component: ProductosComponent},
   { path: 'mensajes-clientes', component: MensajesClientesComponent},
   { path: 'allproducts', component: AllproductsComponent},
@@ -40,7 +41,7 @@ const routes: Routes = [
 
 
   // Otras rutas que puedas tener
-  
+
   {path:'**', redirectTo:'/inicio', pathMatch:"full"}
 ];
 

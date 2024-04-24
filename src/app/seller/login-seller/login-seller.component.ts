@@ -47,7 +47,7 @@ export class LoginSellerComponent implements OnInit {
           if (response.company.status === 'reject') {
             this.toastr.error('Your account has been rejected', 'Account rejected');
             this.loading = false;
-            return;
+            return; 
           }
           if (response.company.status === 'new seller') {
             this.toastr.info('Please wait for the admin to approve your account', 'Account not approved');

@@ -9,6 +9,7 @@ import { UserListComponent } from './usuarios/usuarios.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { FilesComponent } from './files/files.component';
 import { VerCompComponent } from './ver-comp/ver-comp.component';
+import { PermissionsAdminGuard } from '../guards/permissions-admin.guard';
 
 
 
@@ -16,18 +17,18 @@ import { VerCompComponent } from './ver-comp/ver-comp.component';
 
 const routes: Routes = [
     {path: 'loginAdmin',component:LoginComponent},
-    
-    { path: 'empresas', component: EmpresasComponent},
+
+    { path: 'empresas', component: EmpresasComponent, canActivate:[PermissionsAdminGuard]},
     { path: 'productos', component: ProductosComponent},
     { path: 'navv', component: NavvComponent},
-    { path: 'usuarios', component: UserListComponent},
+    { path: 'usuarios', component: UserListComponent, canActivate:[PermissionsAdminGuard]},
     { path: 'sidenav', component: SidenavComponent},
     { path: 'files', component: FilesComponent},
     { path: 'ver-comp', component: VerCompComponent},
 
 
 
-  
+
 
 ];
 

@@ -13,20 +13,13 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
           <div class="navbar-nav mr-auto py-0">
-            <a href="index.html" routerLink="/inicio" class="nav-item nav-link active">Home</a>
-            <a href="shop.html" routerLink="/categories" class="nav-item nav-link">Products</a>
-            <div class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-              <div class="dropdown-menu rounded-0 m-0">
-                <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                <a href="checkout.html" class="dropdown-item">Checkout</a>
-              </div>
-            </div>
-            <a href="contact.html" routerLink="/contact" class="nav-item nav-link">Contact</a>
+            <a  routerLink="/inicio" class="nav-item nav-link ">Home</a>
+            <a  routerLink="/store" class="nav-item nav-link ">Store</a>
+            <a routerLink="/university" class="nav-item nav-link">University</a>
           </div>
           <div class="navbar-nav ml-auto py-0">
-            <a href="" routerLink="/login" class="nav-item nav-link">Login</a>
-            <a href="" routerLink="/register" class="nav-item nav-link">Register</a>
+            <a routerLink="/login" class="nav-item nav-link">Login</a>
+            <a routerLink="/register" class="nav-item nav-link">Register</a>
           </div>
         </div>
       </nav>
@@ -115,15 +108,15 @@
                     </form>
                     or Sign in with: <br>
                     <button (click)="signInWithGoogle()" class="btn google-signin-button" style="background-color: transparent; border: none;">
-                      <i class="fab fa-google" style="color: #FFD700; font-size: 24px;" 
+                      <i class="fab fa-google" style="color: #FFD700; font-size: 24px;"
                         onmouseover="this.style.color = 'black'" onmouseout="this.style.color = '#FFD700'"></i>
                     </button>
                     <div class="text-center">
                       <a routerLink="/login">
                         <p style="color:black">You already have an account?: Login</p>
                       </a>
-        
-        
+
+
                     </div>
                   </div>
                 </div>

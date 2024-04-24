@@ -28,7 +28,7 @@
 
           </div>
           <div class="navbar-nav ml-auto py-0">
-            <p>User: <strong>{{name}}</strong></p>
+            <button (click)="logOut()" class="btn btn-danger">Log Out</button>
 
           </div>
         </div>
@@ -44,9 +44,9 @@
                   now and enjoy the best deals
                 </h4>
                 <h3 class="display-4 text-white font-weight-semi-bold mb-4">
-                  Hivex Your best choice!
+                  Welcome {{name}} to Hivex
                 </h3>
-                <a routerLink="/login" class="btn btn-light py-2 px-3">Shop Now</a>
+
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
                 <h3 class="display-4 text-white font-weight-semi-bold mb-4">
                   Hivex Your best choice
                 </h3>
-                <a routerLink="/login" class="btn btn-light py-2 px-3">Shop Now</a>
+
               </div>
             </div>
           </div>
@@ -134,13 +134,13 @@
           </div>
           <!-- Product actions-->
           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center"><a routerLink="/Catalogue" class="btn btn-primary btn-outline-dark mt-auto"
-                href="#">View details</a></div>
-          </div>
+            <a (click)="producto(product._id!)" class="btn btn-primary btn-outline-dark mt-auto"
+            >View details</a></div>
+      </div>
         </div>
       </div>
     </div>
-  </div>
+
 </section>
 
 

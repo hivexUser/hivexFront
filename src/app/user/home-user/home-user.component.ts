@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/products';
 import { CompartdoService } from 'src/app/services/compartdo.service';
 import { ProductService } from 'src/app/services/product.service';
@@ -13,7 +14,7 @@ export class HomeUserComponent implements OnInit {
   name: string = '';
   Usuario = '';
   listProducts: Product[] = [];
-  constructor(private router: Router, private _productService: ProductService, private _Compartido: CompartdoService ) { }
+  constructor(private router: Router, private toastr: ToastrService, private _productService: ProductService, private _Compartido: CompartdoService ) { }
 
   ngOnInit(): void {
     this.info();
@@ -39,7 +40,7 @@ export class HomeUserComponent implements OnInit {
   }
 
   capturarTitulo(event: Event) {
-    console.log("El método capturarTitulo se ha llamado");
+
     // Continúa con el resto de tu lógica aquí
     const h5Element = (event.currentTarget as HTMLElement).querySelector('.card-title');
     if (h5Element) {
@@ -49,5 +50,18 @@ export class HomeUserComponent implements OnInit {
         localStorage.setItem('categoria', tituloCategoria!);
         this.router.navigate(['/Catalogue']);
     }
+}
+
+producto(_id: string) {
+  localStorage.setItem('productId', _id);
+  this.router.navigate(['/detail']);
+}
+
+
+logOut(){
+
+  localStorage.clear();
+  this.router.navigate(['/inicio'])
+  this.toastr.error('You have successfully logged out','Goodbye!');
 }
 }

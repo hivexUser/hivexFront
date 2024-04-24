@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterLink, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PermissionsGuard implements CanActivate {
+export class PermissionsAdminGuard implements CanActivate {
+
   constructor(private router: Router, private Toast: ToastrService,) {}
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -18,10 +19,10 @@ export class PermissionsGuard implements CanActivate {
     this.router.navigate(['/inicio']); // Use navigate method of Router
     return false;
   }
- 
+  
   hasUserPermission(): boolean {
-    const userId = localStorage.getItem('userId');
-    if (!userId || userId.trim() === '') {
+    const admin = localStorage.getItem('admin');
+    if (!admin || admin.trim() === '') {
       return false;
     }
     return true;

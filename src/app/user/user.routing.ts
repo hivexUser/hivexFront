@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeSellerComponent } from '../seller/home-seller/home-seller.component';
 import { HomeUserComponent } from './home-user/home-user.component';
 import { PermissionsGuard } from '../guards/permissions.guard';
+import { StoreComponent } from './store/store.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
     {path: 'login',component:LoginComponent},
     {path: 'register',component:RegisterComponent},
     {path: 'home',component:HomeUserComponent, canActivate: [PermissionsGuard]},
+    {path: 'store',component:StoreComponent},
 ];
 
 

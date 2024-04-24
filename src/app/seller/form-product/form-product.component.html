@@ -44,16 +44,7 @@
           <input type="file" id="image" (change)="getFile($event)" multiple>
 
         </div>
-        <div data-mdb-input-init class="form-outline mb-4">
-          <label class="form-label" for="form6Example4">Color</label>
-          <input type="text" id="color" formControlName="color" placeholder="Enter color"
-            class="form-control in" />
 
-          <span *ngIf="ProductForm.get('color')?.hasError('required') && ProductForm.get('color')?.touched"
-            class="text-danger errorLabel">
-            <strong>Color</strong> it is required.
-          </span>
-        </div>
 
         <div data-mdb-input-init class="form-outline mb-4">
           <label class="form-label" for="form6Example4">Stock</label>
@@ -63,6 +54,17 @@
           <span *ngIf="ProductForm.get('stock')?.hasError('required') && ProductForm.get('stock')?.touched"
             class="text-danger errorLabel">
             <strong>Stock</strong> it is required.
+          </span>
+        </div>
+
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label" for="form6Example4">Color</label>
+          <input type="text" id="color" formControlName="color" placeholder="Enter the color"
+                class="form-control in"/>
+
+          <span *ngIf="ProductForm.get('color')?.hasError('required') && ProductForm.get('color')?.touched"
+            class="text-danger errorLabel">
+            <strong>Color</strong> it is required.
           </span>
         </div>
 
