@@ -1,0 +1,56 @@
+<app-header-user></app-header-user>
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block  sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <h5 class="text-center">Company catalog</h5>
+          <li class="nav-item negro" *ngFor="let company of listCompanies">
+            <p class="text-center">{{company.companyName}}</p>
+          </li>
+
+          <!-- Añadir más elementos de menú según sea necesario -->
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Contenido -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 content">
+
+      <h2 class=" title text-center">List of products</h2>
+      <section class="py-5">
+        <div class="container px-4 px-xl-12 mt-2">
+          <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3 mb-4" *ngFor="let product of listProducts">
+              <div class="card h-100">
+                <!-- Product image-->
+                <img class="card-img-top prod" [src]="product.file">
+
+                <!-- Product details-->
+                <div class="card-body p-4">
+                  <div class="text-center">
+                    <!-- Product name-->
+                    <h5 class="fw-bolder">{{product.name}}</h5>
+                    <!-- Product price-->
+                    <p>${{product.price}}.00</p>
+                    <br>
+                  </div>
+                </div>
+                <!-- Product actions-->
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div class="text-center"><a (click)="producto(product._id!)" class=" btn btn-primary btn-outline-dark
+                      mt-auto">View
+                      details</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
