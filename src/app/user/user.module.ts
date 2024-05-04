@@ -17,6 +17,7 @@ import { HomeUserComponent } from './home-user/home-user.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { StoreComponent } from './store/store.component';
 import { StoreUserComponent } from './store-user/store-user.component';
+import { ConfirmedEmailComponent } from './confirmed-email/confirmed-email.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { StoreUserComponent } from './store-user/store-user.component';
     HomeUserComponent,
     StoreComponent,
     StoreUserComponent,
+    ConfirmedEmailComponent,
   ],
   exports: [
     InicioComponent,
