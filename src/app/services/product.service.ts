@@ -22,7 +22,6 @@ export class ProductService {
   }
 
   addProduct(product:FormData):Observable<any>{
-
     return this.http.post(this.url, product);
   }
 

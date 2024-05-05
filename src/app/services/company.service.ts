@@ -13,7 +13,7 @@ export class CompanyService {
   apiEdit= 'https://backendlyon.onrender.com/companies/updateCompany'
 
   constructor(private http: HttpClient) { }
-
+ 
 
   editStatus(company:any):Observable<any>{
     return this.http.post(this.apiEdit, company);
