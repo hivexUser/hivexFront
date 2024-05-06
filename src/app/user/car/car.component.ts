@@ -16,24 +16,27 @@ export class CarComponent implements OnInit {
   _id = localStorage.getItem('productId') || '';
   userId = localStorage.getItem('userId') || '';
   producto: any;
+
+  shoppingCartId: string =this.userId;
 listCar: productCar[] = [];
   constructor(private toastr: ToastrService  ,private router: Router, private _productService: ProductService, private _Car: ShoppingCarService) { }
 
   ngOnInit(): void {
-    // this.getCarById(this.userId);
+this.getProduct();
+console.log(this.shoppingCartId);
+
   }
 
-  // getCarById(id: string) {
-  //   this._Car.getProductById(this.userId).subscribe(
-  //     (data) => {
+  getProduct() {
+    this._Car.getProductById(this.shoppingCartId).subscribe(
+      (data) => {
+        console.log(data);
 
-  //       console.log(data);
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
-
-  // }
 }

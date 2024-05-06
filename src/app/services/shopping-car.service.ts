@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ShoppingCarService {
 url='https://backendlyon.onrender.com/shoppingCar';
+urlCar='https://backendlyon.onrender.com/shoppingCar/getAllCar';
 
   constructor(private http: HttpClient) { }
 
@@ -18,12 +19,13 @@ url='https://backendlyon.onrender.com/shoppingCar';
       total: ProductCar.total,
       quantity: ProductCar.quantity,
     };
-    
+
     console.log('producto recibido de service', ProductCar);
     return this.http.post(this.url, productCar);
   }
 
-  getProductById(id: string){
-    // return this.http.post(this.url, id);
+  getProductById( shoppingCartId: string){
+    
+     return this.http.post(this.urlCar,  shoppingCartId);
   }
 }
