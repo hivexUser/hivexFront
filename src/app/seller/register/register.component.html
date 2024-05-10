@@ -55,17 +55,29 @@
               <label for="companyName">COMPANY NAME:</label>
               <input formControlName="companyName" type="text" id="companyName" name="companyName"
                 placeholder="Enter the company name" required />
+                <span *ngIf="CompanyForm.get('companyName')?.hasError('required') && CompanyForm.get('companyName')?.touched"
+                class="text-danger errorLabel">
+                <strong>Name</strong> it is required.
+              </span>
             </div>
             <div class="h-form-group2">
               <label for="companyName">EMAIL:</label>
               <input formControlName="email" type="text" id="companyEmail" name="companyName"
                 placeholder="Enter the email" required />
+                <span *ngIf="CompanyForm.get('email')?.hasError('required') && CompanyForm.get('email')?.touched"
+                class="text-danger errorLabel">
+                <strong>Email</strong> it is required.
+              </span>
             </div>
 
             <div class="h-form-group2">
               <label for="companyName">PASSWORD:</label>
               <input formControlName="password" type="password" id="companyPassword" name="companyName"
                 placeholder="Enter password" required />
+                <span *ngIf="CompanyForm.get('password')?.hasError('required') && CompanyForm.get('password')?.touched"
+                class="text-danger errorLabel">
+                <strong>Password</strong> it is required.
+              </span>
             </div>
             <div class="h-form-group2">
               <label for="companyName">CONFIRMATION:</label>
@@ -77,12 +89,20 @@
               <label for="country">COUNTRY:</label>
               <input formControlName="companyCountry" type="text" id="country" name="country"
                 placeholder="Enter your country" required />
+                <span *ngIf="CompanyForm.get('companyCountry')?.hasError('required') && CompanyForm.get('companyCountry')?.touched"
+                class="text-danger errorLabel">
+                <strong>Country</strong> it is required.
+              </span>
             </div>
 
             <div class="h-form-group">
               <label for="productType">PRODUCT TYPE:</label>
               <input type="text" formControlName="productType" id="companyType" name="companyType"
                 placeholder="Enter the product type" required />
+                <span *ngIf="CompanyForm.get('productType')?.hasError('required') && CompanyForm.get('productType')?.touched"
+                class="text-danger errorLabel">
+                <strong>Product type</strong> it is required.
+              </span>
             </div>
 
             <div class="h-form-group">
@@ -91,18 +111,27 @@
                 <input type="tel" id="countryCode" name="countryCode" placeholder="+" maxlength="4" required />
                 <input type="tel" formControlName="companyPhone" id="phone" name="phone" maxlength="11"
                   placeholder="Enter the phone number" required />
+
               </div>
+              <span *ngIf="CompanyForm.get('companyPhone')?.hasError('required') && CompanyForm.get('companyPhone')?.touched"
+                class="text-danger errorLabel">
+                <strong>Phone</strong> it is required.
+              </span>
             </div>
 
             <div class="h-form-group">
               <label for="contactName">CONTACT PERSON'S NAME:</label>
               <input type="text" formControlName="companyContact" id="contactName" name="contactName"
                 placeholder="Enter the contact person's name" required />
+                <span *ngIf="CompanyForm.get('companyContact')?.hasError('required') && CompanyForm.get('companyContact')?.touched"
+                class="text-danger errorLabel">
+                <strong>Contact</strong> it is required.
+              </span>
             </div>
             <br>
             <div class="h-form-group">
               <label for="contactRFC">CONTACT PERSON'S RFC:</label>
-              <input type="file" id="companyRfc" formControlName="companyRfc" (change)="getFile($event)" multiple>
+              <input type="file" id="companyRfc" formControlName="file" (change)="getFile($event)" multiple>
 
             </div>
             <br>
@@ -114,7 +143,7 @@
               </button>
             </div>
 
-            <button type="submit" class="h-submit-button ">Register Company</button>
+            <button type="submit"  class="bton btn-primary">Register Company</button>
 
           </form>
         </div>

@@ -11,11 +11,17 @@ import { ProductService } from 'src/app/services/product.service';
 export class InicioComponent implements OnInit {
   Usuario = '';
   listProducts: Product[] = [];
+  loading= true;
   constructor( private router: Router, private _productService: ProductService,) { }
 
   ngOnInit(): void {
     this.Usuario
     this.getProducts();
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userId');
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
   }
 
 
@@ -24,9 +30,9 @@ export class InicioComponent implements OnInit {
     this._productService.getProducts().subscribe(
       (data) => {
 
-        // Obtener los últimos 4 productos utilizando slice
-        this.listProducts = data.products.slice(-4);
-        
+        const acceptedProducts = data.products.filter((product: any) => product.status === 'accept');
+      this.listProducts = acceptedProducts.slice(-4);
+
       },
       (error) => {
         console.log(error);

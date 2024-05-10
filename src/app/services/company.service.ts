@@ -9,19 +9,22 @@ import { company } from '../models/company';
 })
 export class CompanyService {
 
-  apiUrl = 'https://backendlyon.onrender.com/companies';
+  apiUrl = 'https://backendlyon.onrender.com/companies/';
+  apiEdit= 'https://backendlyon.onrender.com/companies/updateCompany'
 
   constructor(private http: HttpClient) { }
+ 
 
-//   login(loginUser:LoginUser):Observable<any>{
-//     return this.http.post<any>(this.apiUrl, loginUser);
-//   }
-// }
-
+  editStatus(company:any):Observable<any>{
+    return this.http.post(this.apiEdit, company);
+  }
 
 addCompnay(Company:FormData):Observable<any>{
   return this.http.post<any>(this.apiUrl, Company);
 }
 
+getCompanies():Observable<any>{
+  return this.http.get(this.apiUrl);
 }
- 
+
+}

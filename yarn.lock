@@ -153,6 +153,15 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/cdk@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-13.0.0.tgz"
+  integrity sha512-OUgDSyiZM16kdaEqMgivg7qSULfYFQBH7qv/v6NKKz9gYuBStqv/dgbsoYdKUb8SNMON9KlYd3zZX0lRutoXFA==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    parse5 "^5.0.0"
+
 "@angular/cli@~14.2.13":
   version "14.2.13"
   resolved "https://registry.npmjs.org/@angular/cli/-/cli-14.2.13.tgz"
@@ -179,7 +188,7 @@
     uuid "8.3.2"
     yargs "17.5.1"
 
-"@angular/common@^14.2.0", "@angular/common@^17.0.0", "@angular/common@>=12.0.0-0", "@angular/common@>=14.0.0", "@angular/common@14.3.0":
+"@angular/common@^13.0.0 || ^14.0.0-0", "@angular/common@^14.2.0", "@angular/common@^17.0.0", "@angular/common@>=12.0.0-0", "@angular/common@>=14.0.0", "@angular/common@14.3.0":
   version "14.3.0"
   resolved "https://registry.npmjs.org/@angular/common/-/common-14.3.0.tgz"
   integrity sha512-pV9oyG3JhGWeQ+TFB0Qub6a1VZWMNZ6/7zEopvYivdqa5yDLLDSBRWb6P80RuONXyGnM1pa7l5nYopX+r/23GQ==
@@ -209,7 +218,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^14.2.0", "@angular/core@^17.0.0", "@angular/core@>=12.0.0-0", "@angular/core@>=14.0.0", "@angular/core@>=4.0.0", "@angular/core@14.3.0":
+"@angular/core@^13.0.0 || ^14.0.0-0", "@angular/core@^14.2.0", "@angular/core@^17.0.0", "@angular/core@>=12.0.0-0", "@angular/core@>=14.0.0", "@angular/core@>=4.0.0", "@angular/core@14.3.0":
   version "14.3.0"
   resolved "https://registry.npmjs.org/@angular/core/-/core-14.3.0.tgz"
   integrity sha512-wYiwItc0Uyn4FWZ/OAx/Ubp2/WrD3EgUJ476y1XI7yATGPF8n9Ld5iCXT08HOvc4eBcYlDfh90kTXR6/MfhzdQ==
@@ -5287,11 +5296,11 @@ neo-async@^2.6.2:
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
 ngx-toastr@^14.0.0:
-  version "14.0.0"
-  resolved "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-14.0.0.tgz"
-  integrity sha512-dnDzSY73pF6FvNyxdh6ftfvXvUg6SU7MAT3orPUCzA77t3ZcFslro06zk4NCA2g67RF7dBwM0OJ/y0SN6fdGYw==
+  version "14.3.0"
+  resolved "https://registry.npmjs.org/ngx-toastr/-/ngx-toastr-14.3.0.tgz"
+  integrity sha512-d8j/sOr60w5U7rGlcKQ0Ff4u+m2NzhqU5ZdJXn7QW3aR3Zf/rY7/Fd14BmUindTOWVr2NeTYcQXCjLpir0ldpA==
   dependencies:
-    tslib "^2.1.0"
+    tslib "^2.3.0"
 
 node-fetch@^2.6.1:
   version "2.7.0"
@@ -5645,6 +5654,11 @@ parse5-sax-parser@^6.0.1:
   integrity sha512-kXX+5S81lgESA0LsDuGjAlBybImAChYRMT+/uKCEXFBFOeEhS52qUCydGhU3qLRD8D9DVjaUo821WK7DM4iCeg==
   dependencies:
     parse5 "^6.0.1"
+
+parse5@^5.0.0:
+  version "5.1.1"
+  resolved "https://registry.npmjs.org/parse5/-/parse5-5.1.1.tgz"
+  integrity sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==
 
 parse5@^6.0.1:
   version "6.0.1"

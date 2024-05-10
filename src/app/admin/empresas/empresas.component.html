@@ -1,0 +1,21 @@
+<div class="body">
+  <div class="admin-panel">
+    <h2 class="titulo text-center">Empresas</h2>
+    <div class="company-list">
+      <div class="company-item" *ngFor="let company of listCompanies">
+        <h3></h3>
+        <p><strong>Nombre:</strong> {{company.companyName}}</p>
+        <p><strong>Email:</strong> {{company.email}}</p>
+        <p><strong>Documentos:</strong><a href="{{company.pdf?company.pdf:'no tiene'}}"> Link PDF</a></p>
+        <p><strong>Telefono:</strong> {{company.companyPhone}}</p>
+        <p><strong>Persona:</strong> {{company.companyContact}}</p>
+        <p><strong>Status:</strong> {{company.status}}</p>
+
+        <div class="approval-buttons">
+          <button class="approve-button" (click)="acceptStatus(company._id)">Aprobar</button>
+          <button class="reject-button"  (click)="rejectStatus(company._id)">Rechazar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

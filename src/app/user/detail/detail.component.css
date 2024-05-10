@@ -15,6 +15,9 @@ height: 410px;
   font: weight 900;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
 
 .botton{
   background-color: aliceblue;

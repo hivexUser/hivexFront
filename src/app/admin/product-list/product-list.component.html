@@ -1,0 +1,48 @@
+
+
+<div class="body" [ngClass]="getBodyClass">
+
+<div class="container">
+  <div class="table-container">
+    <h1 class=" text-center">Lista de productos</h1>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Stock</th>
+          <th>Producto</th>
+          <th>Imagen</th>
+          <th>Descripcion</th>
+          <th>Precio</th>
+          <th>Status</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr *ngFor="let product of listProducts.slice((currentPage - 1) * pageSize, currentPage * pageSize); let i = index" class="border-b hover:bg-gray-100">
+          <td class="p-3">{{product.stock}}</td>
+          <td class="p-3">{{product.name}}</td>
+          <td class="p-3"><img [src]="product.file" alt="" style="max-width: 100px;"></td>
+          <td class="p-3">{{product.description}}</td>
+          <td class="p-3">{{product.price}}</td>
+          <td class="p-3">{{product.status}}</td>
+          <td class="p-3">
+            <button (click)="acceptStatus(product._id)" class="detail me-2">Aprobar</button>
+            <button (click)="rejectStatus(product._id)"class="detail">Desaprobar</button><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-container">
+    <button class="btn bg-cyan-500  px-4 py-2 rounded-l-lg mr-2" (click)="previousPage()">Previous</button>
+    <button *ngFor="let pageNumber of pageNumbers(); let i = index" class="btn bg-cyan-500  px-4 py-2 rounded-lg mx-1" [class.bg-cyan-700]="i+1 == currentPage" [class.text-gray-600]="i+1 != currentPage" (click)="changePage(i+1)">{{i+1}}</button>
+    <button class="btn bg-cyan-500 px-4 py-2 rounded-r-lg ml-2" (click)="nextPage()">Next</button>
+  </div>
+</div>
+
+
+
+
+</div>

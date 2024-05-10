@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Agregar Producto</h1>
+    <form [formGroup]="ProductForm" (ngSubmit)="addProduct()">
+        <div class="form-group">
+            <label for="name">Nombre del Producto:</label>
+            <input  class="form-control" type="text"  id="name" formControlName="name" required>
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+
+            <label class="form-label" id="category" for="form6Example5">Category :</label>
+            <select id="form6Example5" formControlName="category" class="form-control">
+                <option value="1">Electronics</option>
+                <option value="2">Clothing</option>
+                <option value="3">Books</option>
+                <option value="4">Home & Garden</option>
+                <option value="5">Sports & Outdoors</option>
+            </select>
+          </div>
+        <div class="form-group">
+            <label for="price">Precio:</label>
+            <input type="number" id="price" formControlName="price" required>
+        </div>
+        <div class="form-group">
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" formControlName="stock" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea id="description" formControlName="description" rows="4" required></textarea>
+        </div>
+        <div data-mdb-input-init class="form-outline mb-4">
+            <input type="file"  (change)="getFile($event)"  multiple>
+            <label class="form-label"  for="form6Example3">Image</label>
+          </div>
+        <button type="submit">Agregar Producto</button>
+    </form>
+</div>

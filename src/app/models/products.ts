@@ -1,5 +1,4 @@
 export class Product{
-
   _id?: string;
   name: string="";
   price: number=0;
@@ -8,5 +7,7 @@ export class Product{
   description: string="";
   category: string="";
   company_id: string="";
-  status: boolean = true;
+  status: string="";
+  brand: string="";
+  color: string="";
 }

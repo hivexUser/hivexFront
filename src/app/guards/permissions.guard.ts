@@ -18,7 +18,7 @@ export class PermissionsGuard implements CanActivate {
     this.router.navigate(['/inicio']); // Use navigate method of Router
     return false;
   }
-
+ 
   hasUserPermission(): boolean {
     const userId = localStorage.getItem('userId');
     if (!userId || userId.trim() === '') {

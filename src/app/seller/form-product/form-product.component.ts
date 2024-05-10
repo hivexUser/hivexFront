@@ -8,9 +8,6 @@ import { ToastrService } from 'ngx-toastr';
 import { LocalizedString } from '@angular/compiler';
 
 
-
-
-
 @Component({
   selector: 'app-form-product',
   templateUrl: './form-product.component.html',
@@ -18,6 +15,7 @@ import { LocalizedString } from '@angular/compiler';
 })
 export class FormProductComponent implements OnInit {
   ProductForm: FormGroup;
+color: string='';
   loading = false;
   archivo: File | null = null;
   fotoPureba: string = 'Hola mundo';
@@ -25,24 +23,23 @@ export class FormProductComponent implements OnInit {
   id: string | null = null;
   img:File | null = null;
 
- 
+
 
   constructor(private fb: FormBuilder, private router: Router, private aRouter: ActivatedRoute,
     private Toast: ToastrService, private _productService: ProductService) {
-    this.ProductForm = this.fb.group({
-      name: ['', Validators.required],
-      price: ['', Validators.required],
-      stock: ['', Validators.required],
-      category: ['', Validators.required],
-      description: ['', Validators.required],
-      file: ['', Validators.required]
-
-    })
+      this.ProductForm = this.fb.group({
+        name: ['', Validators.required],
+        price: ['', Validators.required],
+        stock: ['', Validators.required],
+        category: ['', Validators.required],
+        description: ['', Validators.required],
+        color: ['', Validators.required],
+        brand: [''],
+      });
     this.id = this.aRouter.snapshot.paramMap.get('id')
   }
 
   ngOnInit(): void {
-
     this.esEditar();
   }
 
@@ -67,9 +64,12 @@ export class FormProductComponent implements OnInit {
     Product.append('stock', this.ProductForm.get('stock')?.value);
     Product.append('category', this.ProductForm.get('category')?.value);
     Product.append('description', this.ProductForm.get('description')?.value);
+    Product.append('color', this.ProductForm.get('color')!.value);
+    Product.append('brand', localStorage.getItem('companyName') || '');
     Product.append('file', this.archivo!);
     Product.append('status', 'new');
     Product.append('company_id', localStorage.getItem('companyId') || '');
+
 
     if (this.id !== null) {
       // Editar producto
@@ -101,17 +101,23 @@ export class FormProductComponent implements OnInit {
   esEditar() {
     if (this.id !== null) {
       this._productService.getProductById(this.id).subscribe(data => {
-        console.log(data.product) // Mostramos la imagen en consola
+        console.log(data.product)
           this.img = data.product.file;
+          this.color = data.product.color;
+          console.log(this.color)
           this.ProductForm.setValue({
             name: data.product.name,
             price: data.product.price,
             stock: data.product.stock,
             description: data.product.description,
             category: data.product.category,
-            file: data.product.file
+            brand: data.product.brand,
+            color: data.product.color
+
+
             // Establecemos el valor de la imagen
           });
+
         }
       , error => {
         console.log(error)

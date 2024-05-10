@@ -9,7 +9,8 @@ import { HttpHeaders } from '@angular/common/http'; // Import the 'HttpHeaders' 
 export class ProductService {
   url = 'https://backendlyon.onrender.com/product/';
   urldelete='https://backendlyon.onrender.com/product/delete/'
-  urlupdate='https://backendlyon.onrender.com/product/update/'
+  urlupdate='https://backendlyon.onrender.com/product/updateStatus'
+  urlupdateProduct='https://backendlyon.onrender.com/product/update/'
   constructor(private http: HttpClient) { }
 
   getProducts():Observable<any>{
@@ -21,19 +22,22 @@ export class ProductService {
   }
 
   addProduct(product:FormData):Observable<any>{
-
     return this.http.post(this.url, product);
   }
 
   editarProduct( Product:FormData):Observable<any>{
-    return this.http.put(this.urlupdate, Product);
+    return this.http.put(this.urlupdateProduct, Product);
   }
 
   getProductById(id: string):Observable<any>{
     return this.http.get(this.url + id);
   }
 
- 
+  editStatus(product:any):Observable<any>{
+    return this.http.post(this.urlupdate, product);
+  }
+
+  }
 
 
-}
+

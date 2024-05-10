@@ -21,7 +21,11 @@
                   <th>Price</th>
                   <th>Description</th>
                   <th>Stock</th>
+                  <th>Status</th>
+                  <th>Category</th>
+                  <th>Color</th>
                   <th>Actions</th>
+
                 </tr>
               </thead>
               <tbody class="align-middle" *ngFor="let products of listProducts">
@@ -30,16 +34,28 @@
                     <p>{{products.name}}</p>
                   </td>
                   <td>
+
                   <img [src]="products.file" alt="Product Image" width="90">
                 </td>
+
                   <td class="align-middle">{{products.price}}</td>
                   <td class="align-middle">
                     {{products.description}}
                   </td>
                   <td class="align-middle">{{products.stock}}</td>
+                  <td class="align-middle"> <strong>
+                    {{products.status}}</strong>
+                  </td>
+                  <td class="align-middle">
+                    {{products.category}}
+                  </td>
+                  <td class="align-middle">
+                    {{products.color}}
+                  </td>
                   <td class="align-middle">
                     <button class="btn btn-info"  [routerLink]="['/editarProduct', products._id]">Edit</button>
                     <button (click)="deleteProduct(products._id)" class="btn btn-danger ml-1">Delete</button>
+
                   </td>
                 </tr>
 

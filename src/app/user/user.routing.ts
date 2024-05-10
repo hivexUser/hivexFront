@@ -13,6 +13,9 @@ import { RegisterComponent } from './register/register.component';
 import { HomeSellerComponent } from '../seller/home-seller/home-seller.component';
 import { HomeUserComponent } from './home-user/home-user.component';
 import { PermissionsGuard } from '../guards/permissions.guard';
+import { StoreComponent } from './store/store.component';
+import { StoreUserComponent } from './store-user/store-user.component';
+import { ConfirmedEmailComponent } from './confirmed-email/confirmed-email.component';
 
 
 const routes: Routes = [
@@ -27,6 +30,9 @@ const routes: Routes = [
     {path: 'login',component:LoginComponent},
     {path: 'register',component:RegisterComponent},
     {path: 'home',component:HomeUserComponent, canActivate: [PermissionsGuard]},
+    {path: 'store',component:StoreComponent},
+    {path: 'storeUser',component:StoreUserComponent, canActivate: [PermissionsGuard]},
+    {path: 'confirmed',component:ConfirmedEmailComponent}
 ];
 
 

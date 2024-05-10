@@ -21,6 +21,11 @@
 }
 
 
+
+.spinner {
+  /* Estilos para tu spinner */
+}
+
 .icono-play:hover {
 
   background: url('/assets/img/play-hover.png') center center no-repeat; /* Reemplaza 'icono_play.png' con la ruta de tu propio icono */

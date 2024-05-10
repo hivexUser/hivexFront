@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeSellerComponent implements OnInit {
   dateCompany: string = '';
+  admin: any = localStorage.getItem('admin' || null);
 
   constructor() { }
 
   ngOnInit(): void {
+    localStorage.removeItem('admin');
     this.dateCompany = localStorage.getItem('companyId') ?? '';
     console.log(this.dateCompany);
   }

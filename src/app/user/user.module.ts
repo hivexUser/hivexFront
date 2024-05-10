@@ -15,6 +15,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeUserComponent } from './home-user/home-user.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { StoreComponent } from './store/store.component';
+import { StoreUserComponent } from './store-user/store-user.component';
+import { ConfirmedEmailComponent } from './confirmed-email/confirmed-email.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     LoginComponent,
     RegisterComponent,
     HomeUserComponent,
+    StoreComponent,
+    StoreUserComponent,
+    ConfirmedEmailComponent,
   ],
   exports: [
     InicioComponent,
